@@ -1,0 +1,13 @@
+Running bucket_max_once
+CUDA device 0: memory pools supported=no
+CONFIG buckets=10 capacity=300 workers=4 arena_mb=8192 operation=maximum_with_id
+TIME client_keys = 662.323 ms
+TIME server_setup = 94.578 ms
+TIME input_encryption = 10908.160 ms
+TIME bucket_maxima = 108347.776 ms
+TIME verify_all_winners = 1.717 ms
+VERIFIED maxima=10 workers_used=4 peak_host_calls=4
+PASS: bucket_max_once
+Completed server evaluations: 1; evaluation_ms=108347.776; setup_ms=756.901; encryption_ms=10908.160; decryption_ms=1.717
+Component wall time: 120267.551 ms
+TFHE_ARENA cuda_malloc_calls=1 reused_slices=573552 fresh_slices=3550 releases=577102 reserved_bytes=8589934592 carved_bytes=1468705792 peak_live_bytes=1381774336 available_bytes=1468705792

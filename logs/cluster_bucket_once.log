@@ -1,0 +1,120 @@
+Running cluster_bucket_once
+CUDA device 0: memory pools supported=no
+CONFIG N=1000000 dimensions=128 C=500 u=15 candidates=30000 B=100 capacity=300 k=10 score_bits=23 id_bits=20 fields=32+32 drop_bits=0
+SCOPE: component measurements; no oblivious BFV gather or candidate conversion.
+Candidate TFHE inputs come from a public synthetic fixture, not encrypted Top-u.
+NETWORK centroid_topu layers=35 minmax_gates=3008 minimum_gates=496
+NETWORK bucket_minima layers=9 minmax_gates=0 minimum_gates=29900
+NETWORK winner_topk layers=25 minmax_gates=633 minimum_gates=96
+TIME client_keys = 698.449 ms
+TIME conversion_keys = 7779.512 ms
+TIME server_setup = 97.609 ms
+TIME query_encryption = 24.256 ms
+PROGRESS candidate_fixture_encryption elapsed_seconds=30.000
+PROGRESS candidate_fixture_encryption elapsed_seconds=60.000
+PROGRESS candidate_fixture_encryption elapsed_seconds=90.000
+TIME candidate_fixture_encryption = 108913.889 ms
+TIME bfv_records_distance = 3006.238 ms; column_preparation = 128.352 ms; batches=245
+TIME bfv_centroid_distance = 12.500 ms
+GPU_BIT_EXTRACTION round=6/24 batch=500
+GPU_BIT_EXTRACTION round=12/24 batch=500
+PROGRESS centroid_conversion elapsed_seconds=30.000
+GPU_BIT_EXTRACTION round=18/24 batch=500
+GPU_BIT_EXTRACTION round=24/24 batch=500
+CONVERSION_PHASE backend=gpu samples=500 keyswitch_bits_ms=41406.934
+PROGRESS centroid_conversion elapsed_seconds=60.000
+CONVERSION_RADIX samples=500 gpu_workers=4 ms=32630.208
+TIME centroid_conversion = 74493.564 ms
+PROGRESS centroid_topu elapsed_seconds=30.000
+PROGRESS centroid_topu elapsed_seconds=60.000
+PROGRESS centroid_topu elapsed_seconds=90.000
+PROGRESS centroid_topu elapsed_seconds=120.000
+PROGRESS centroid_topu elapsed_seconds=150.001
+PROGRESS centroid_topu elapsed_seconds=180.001
+PROGRESS centroid_topu elapsed_seconds=210.001
+PROGRESS centroid_topu elapsed_seconds=240.001
+PROGRESS centroid_topu elapsed_seconds=270.001
+PROGRESS centroid_topu elapsed_seconds=300.001
+TIME centroid_topu = 326342.006 ms
+TIME random_buckets = 2.820 ms
+PROGRESS bucket_minima elapsed_seconds=30.000
+PROGRESS bucket_minima elapsed_seconds=60.000
+PROGRESS bucket_minima elapsed_seconds=90.000
+PROGRESS bucket_minima elapsed_seconds=120.000
+PROGRESS bucket_minima elapsed_seconds=150.000
+PROGRESS bucket_minima elapsed_seconds=180.001
+PROGRESS bucket_minima elapsed_seconds=210.001
+PROGRESS bucket_minima elapsed_seconds=240.001
+PROGRESS bucket_minima elapsed_seconds=270.001
+PROGRESS bucket_minima elapsed_seconds=300.001
+PROGRESS bucket_minima elapsed_seconds=330.001
+PROGRESS bucket_minima elapsed_seconds=360.001
+PROGRESS bucket_minima elapsed_seconds=390.001
+PROGRESS bucket_minima elapsed_seconds=420.001
+PROGRESS bucket_minima elapsed_seconds=450.002
+PROGRESS bucket_minima elapsed_seconds=480.002
+PROGRESS bucket_minima elapsed_seconds=510.002
+PROGRESS bucket_minima elapsed_seconds=540.002
+PROGRESS bucket_minima elapsed_seconds=570.002
+PROGRESS bucket_minima elapsed_seconds=600.002
+PROGRESS bucket_minima elapsed_seconds=630.002
+PROGRESS bucket_minima elapsed_seconds=660.002
+PROGRESS bucket_minima elapsed_seconds=690.002
+PROGRESS bucket_minima elapsed_seconds=720.003
+PROGRESS bucket_minima elapsed_seconds=750.003
+PROGRESS bucket_minima elapsed_seconds=780.003
+PROGRESS bucket_minima elapsed_seconds=810.003
+PROGRESS bucket_minima elapsed_seconds=840.003
+PROGRESS bucket_minima elapsed_seconds=870.003
+PROGRESS bucket_minima elapsed_seconds=900.003
+PROGRESS bucket_minima elapsed_seconds=930.004
+PROGRESS bucket_minima elapsed_seconds=960.004
+PROGRESS bucket_minima elapsed_seconds=990.004
+PROGRESS bucket_minima elapsed_seconds=1020.004
+PROGRESS bucket_minima elapsed_seconds=1050.005
+PROGRESS bucket_minima elapsed_seconds=1080.005
+PROGRESS bucket_minima elapsed_seconds=1110.005
+PROGRESS bucket_minima elapsed_seconds=1140.005
+PROGRESS bucket_minima elapsed_seconds=1170.005
+PROGRESS bucket_minima elapsed_seconds=1200.005
+PROGRESS bucket_minima elapsed_seconds=1230.005
+PROGRESS bucket_minima elapsed_seconds=1260.005
+PROGRESS bucket_minima elapsed_seconds=1290.005
+PROGRESS bucket_minima elapsed_seconds=1320.006
+PROGRESS bucket_minima elapsed_seconds=1350.006
+PROGRESS bucket_minima elapsed_seconds=1380.006
+PROGRESS bucket_minima elapsed_seconds=1410.006
+PROGRESS bucket_minima elapsed_seconds=1440.006
+PROGRESS bucket_minima elapsed_seconds=1470.006
+PROGRESS bucket_minima elapsed_seconds=1500.006
+PROGRESS bucket_minima elapsed_seconds=1530.006
+PROGRESS bucket_minima elapsed_seconds=1560.007
+PROGRESS bucket_minima elapsed_seconds=1590.007
+PROGRESS bucket_minima elapsed_seconds=1620.007
+PROGRESS bucket_minima elapsed_seconds=1650.007
+PROGRESS bucket_minima elapsed_seconds=1680.008
+PROGRESS bucket_minima elapsed_seconds=1710.008
+PROGRESS bucket_minima elapsed_seconds=1740.008
+PROGRESS bucket_minima elapsed_seconds=1770.008
+PROGRESS bucket_minima elapsed_seconds=1800.008
+PROGRESS bucket_minima elapsed_seconds=1830.008
+PROGRESS bucket_minima elapsed_seconds=1860.008
+PROGRESS bucket_minima elapsed_seconds=1890.008
+PROGRESS bucket_minima elapsed_seconds=1920.008
+PROGRESS bucket_minima elapsed_seconds=1950.008
+PROGRESS bucket_minima elapsed_seconds=1980.009
+PROGRESS bucket_minima elapsed_seconds=2010.009
+PROGRESS bucket_minima elapsed_seconds=2040.009
+PROGRESS bucket_minima elapsed_seconds=2070.009
+PROGRESS bucket_minima elapsed_seconds=2100.009
+TIME bucket_minima = 2112136.709 ms
+PROGRESS winner_topk elapsed_seconds=30.000
+PROGRESS winner_topk elapsed_seconds=60.000
+TIME winner_topk = 65757.756 ms
+FINAL_IDS 760481 760885 761658 761937 488622 761869 488253 488932 760271 489879
+VERIFIED bfv_records=1000000 converted_centroids=500 selected_centroids=15 bucket_winners=100 final_k=10 candidate_distance_recall_at_10=0.900
+TIME client_verification = 181.021 ms
+MEASURED_COMPONENT_SUM_MS=2581751.594 (excludes oblivious BFV gather and candidate conversion; not full query latency)
+PASS: cluster_bucket_once
+Completed server evaluations: 251; evaluation_ms=2581751.594; setup_ms=8575.570; encryption_ms=108938.145; decryption_ms=181.021
+Component wall time: 2700979.498 ms

@@ -1,0 +1,3 @@
+Running bfv_to_tfhe_conversion
+INCOMPLETE: bfv_to_tfhe_conversion - BFV-to-TFHE conversion is not implemented for HEonGPU / TFHE-rs. The CPU MOSFHET/AmortBoot bridge has incompatible N/t, truncates scores by 7 bits, and outputs a different radix format. Conversion correctness and evaluation time are unavailable. See src/he/BFV_TO_TFHE.md.
+Component wall time: 0.043911 ms

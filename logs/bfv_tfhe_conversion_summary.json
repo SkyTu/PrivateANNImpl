@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-12",
+  "gpu": "NVIDIA L40S-48Q",
+  "bfv_n": 4096,
+  "bfv_t": 8380417,
+  "main_count": 500,
+  "main_drop_bits": 7,
+  "gpu_backend": "batched CUDA keyswitch/PBS; 4 native GPU integer workers",
+  "cpu_baseline": {
+    "log": "logs/bfv_tfhe_native_500.log",
+    "passed": true,
+    "timings_ms": {
+      "BFV extraction client keys": 704.656,
+      "BFV-to-TFHE evaluation key generation": 7146.961,
+      "BFV/TFHE server setup": 98.18,
+      "BFV conversion query encryption": 24.287,
+      "BFV conversion source squared L2": 13.216,
+      "BFV source verification": 0.243,
+      "BFV coefficients to torus LWE diagnostic": 327.272,
+      "LWE verification decryptions": 83.686,
+      "Full BFV-to-native-TFHE conversion": 325815.626,
+      "Native TFHE conversion verification": 21.345,
+      "Converted native GPU Top-3 of 11": 1686.077,
+      "Converted Top-k verification": 0.61
+    }
+  },
+  "gpu_500": {
+    "log": "logs/bfv_tfhe_gpu_500.log",
+    "passed": true,
+    "timings_ms": {
+      "BFV extraction client keys": 714.29,
+      "BFV-to-TFHE evaluation key generation": 7778.545,
+      "BFV/TFHE server setup": 98.304,
+      "BFV conversion query encryption": 24.298,
+      "BFV conversion source squared L2": 13.182,
+      "BFV source verification": 0.235,
+      "BFV coefficients to torus LWE diagnostic": 340.838,
+      "LWE verification decryptions": 83.648,
+      "Full BFV-to-native-TFHE conversion": 91126.039,
+      "Native TFHE conversion verification": 15.365,
+      "Converted native GPU Top-3 of 11": 1633.693,
+      "Converted Top-k verification": 0.416
+    }
+  },
+  "gpu_full_precision_11": {
+    "log": "logs/bfv_tfhe_gpu_smoke_full.log",
+    "passed": true,
+    "timings_ms": {
+      "BFV extraction client keys": 737.89,
+      "BFV-to-TFHE evaluation key generation": 7592.921,
+      "BFV/TFHE server setup": 89.589,
+      "BFV conversion query encryption": 21.9,
+      "BFV conversion source squared L2": 11.483,
+      "BFV source verification": 0.185,
+      "BFV coefficients to torus LWE diagnostic": 7.062,
+      "LWE verification decryptions": 1.747,
+      "Full BFV-to-native-TFHE conversion": 3589.881,
+      "Native TFHE conversion verification": 1.34,
+      "Converted native GPU Top-3 of 11": 3815.624,
+      "Converted Top-k verification": 1.466
+    }
+  },
+  "cpu_full_precision_11": {
+    "log": "logs/bfv_tfhe_native_smoke_full.log",
+    "passed": true,
+    "timings_ms": {
+      "BFV extraction client keys": 727.618,
+      "BFV-to-TFHE evaluation key generation": 7120.315,
+      "BFV/TFHE server setup": 100.717,
+      "BFV conversion query encryption": 24.259,
+      "BFV conversion source squared L2": 15.332,
+      "BFV source verification": 0.236,
+      "BFV coefficients to torus LWE diagnostic": 7.588,
+      "LWE verification decryptions": 2.059,
+      "Full BFV-to-native-TFHE conversion": 10053.627,
+      "Native TFHE conversion verification": 1.546,
+      "Converted native GPU Top-3 of 11": 3739.26,
+      "Converted Top-k verification": 2.622
+    }
+  },
+  "full_ann_complete": false,
+  "limitation": "Custom conversion failure probability is not formally bounded; 500 main samples verify distance >> 7, 11 boundary samples verify full precision.",
+  "observed_speedup": 3.575439353838259
+}

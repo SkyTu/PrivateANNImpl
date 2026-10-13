@@ -1,0 +1,99 @@
+CUDA device 0: memory pools supported=no
+PARAMETERS N=4096 t=8380417 ciphertext_Q_bits=71 key_QP_bits=107
+TRACE fresh_crt stage=source correct=4096/4096 library_noise_bits=41
+MASK fresh_crt slot=2 max_abs_centered_coefficient=4189627
+TRACE fresh_crt stage=multiply_plain_mask correct=4096/4096 library_noise_bits=14
+TRACE fresh_crt stage=rotate_1 correct=4096/4096 library_noise_bits=14
+TRACE fresh_crt stage=add_1 correct=4096/4096 library_noise_bits=13
+TRACE fresh_crt stage=rotate_2 correct=4096/4096 library_noise_bits=13
+TRACE fresh_crt stage=add_2 correct=4096/4096 library_noise_bits=13
+TRACE fresh_crt stage=rotate_4 correct=4096/4096 library_noise_bits=13
+TRACE fresh_crt stage=add_4 correct=4096/4096 library_noise_bits=12
+TRACE fresh_crt stage=rotate_8 correct=4096/4096 library_noise_bits=12
+TRACE fresh_crt stage=add_8 correct=4096/4096 library_noise_bits=12
+TRACE fresh_crt stage=rotate_16 correct=4096/4096 library_noise_bits=12
+TRACE fresh_crt stage=add_16 correct=4096/4096 library_noise_bits=11
+TRACE fresh_crt stage=rotate_32 correct=4096/4096 library_noise_bits=11
+TRACE fresh_crt stage=add_32 correct=4096/4096 library_noise_bits=10
+TRACE fresh_crt stage=rotate_64 correct=4096/4096 library_noise_bits=10
+TRACE fresh_crt stage=add_64 correct=4096/4096 library_noise_bits=9
+TRACE fresh_crt stage=rotate_128 correct=4096/4096 library_noise_bits=9
+TRACE fresh_crt stage=add_128 correct=4096/4096 library_noise_bits=8
+TRACE fresh_crt stage=rotate_256 correct=4096/4096 library_noise_bits=8
+TRACE fresh_crt stage=add_256 correct=4096/4096 library_noise_bits=7
+TRACE fresh_crt stage=rotate_512 correct=4096/4096 library_noise_bits=7
+TRACE fresh_crt stage=add_512 correct=4096/4096 library_noise_bits=6
+TRACE fresh_crt stage=rotate_1024 correct=4096/4096 library_noise_bits=6
+TRACE fresh_crt stage=add_1024 correct=4096/4096 library_noise_bits=5
+TRACE fresh_crt stage=swap_rows correct=4096/4096 library_noise_bits=5
+TRACE fresh_crt stage=final_sum correct=4096/4096 library_noise_bits=4
+TRACE square_crt stage=source correct=4096/4096 library_noise_bits=3
+MASK square_crt slot=2 max_abs_centered_coefficient=4189627
+TRACE square_crt stage=multiply_plain_mask correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=4798565
+TRACE square_crt stage=rotate_1 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=7481477
+TRACE square_crt stage=add_1 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=2769473
+TRACE square_crt stage=rotate_2 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=7791508
+TRACE square_crt stage=add_2 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=270487
+TRACE square_crt stage=rotate_4 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=5491325
+TRACE square_crt stage=add_4 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=4347488
+TRACE square_crt stage=rotate_8 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=4261007
+TRACE square_crt stage=add_8 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=5423630
+TRACE square_crt stage=rotate_16 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=6718988
+TRACE square_crt stage=add_16 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=4913541
+TRACE square_crt stage=rotate_32 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=4775149
+TRACE square_crt stage=add_32 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=898348
+TRACE square_crt stage=rotate_64 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=2014267
+TRACE square_crt stage=add_64 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=3487262
+TRACE square_crt stage=rotate_128 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=1946847
+TRACE square_crt stage=add_128 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=3925526
+TRACE square_crt stage=rotate_256 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=1139740
+TRACE square_crt stage=add_256 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=7345587
+TRACE square_crt stage=rotate_512 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=6749194
+TRACE square_crt stage=add_512 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=1995834
+TRACE square_crt stage=rotate_1024 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=1155266
+TRACE square_crt stage=add_1024 correct=0/4096 library_noise_bits=3 first_bad_slot=0 expected=8323200 actual=4004398
+TRACE square_crt stage=swap_rows correct=0/4096 library_noise_bits=3 first_bad_slot=0 expected=0 actual=7927116
+TRACE square_crt stage=final_sum correct=0/4096 library_noise_bits=2 first_bad_slot=0 expected=8323200 actual=3551097
+TRACE linear_crt stage=source correct=4096/4096 library_noise_bits=10
+MASK linear_crt slot=2 max_abs_centered_coefficient=4189627
+TRACE linear_crt stage=multiply_plain_mask correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=2508757
+TRACE linear_crt stage=rotate_1 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=456709
+TRACE linear_crt stage=add_1 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=1255623
+TRACE linear_crt stage=rotate_2 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=6632885
+TRACE linear_crt stage=add_2 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=421049
+TRACE linear_crt stage=rotate_4 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=804323
+TRACE linear_crt stage=add_4 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=950638
+TRACE linear_crt stage=rotate_8 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=1090063
+TRACE linear_crt stage=add_8 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=669553
+TRACE linear_crt stage=rotate_16 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=2189169
+TRACE linear_crt stage=add_16 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=6007645
+TRACE linear_crt stage=rotate_32 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=3673715
+TRACE linear_crt stage=add_32 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=2347763
+TRACE linear_crt stage=rotate_64 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=7779034
+TRACE linear_crt stage=add_64 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=2050308
+TRACE linear_crt stage=rotate_128 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=7437558
+TRACE linear_crt stage=add_128 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=7009974
+TRACE linear_crt stage=rotate_256 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=6744557
+TRACE linear_crt stage=add_256 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=1909934
+TRACE linear_crt stage=rotate_512 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=570045
+TRACE linear_crt stage=add_512 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=5023303
+TRACE linear_crt stage=rotate_1024 correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=0 actual=5797778
+TRACE linear_crt stage=add_1024 correct=0/4096 library_noise_bits=2 first_bad_slot=0 expected=8323200 actual=1587367
+TRACE linear_crt stage=swap_rows correct=0/4096 library_noise_bits=2 first_bad_slot=0 expected=0 actual=7999501
+TRACE linear_crt stage=final_sum correct=0/4096 library_noise_bits=1 first_bad_slot=0 expected=8323200 actual=1206451
+TIME Coefficient-packed BFV distance = 11.023 ms
+COEFFICIENT_DISTANCE correct=4096/4096 library_noise_bits=23
+TIME 500 coefficient-to-LWE extractions = 327.031 ms
+BOUNDARY coefficient=0 expected=0 actual=0 high16=0
+BOUNDARY coefficient=1 expected=1 actual=1 high16=0
+BOUNDARY coefficient=2 expected=8323200 actual=8323200 high16=65025
+BOUNDARY coefficient=3 expected=127 actual=127 high16=0
+BOUNDARY coefficient=4 expected=128 actual=128 high16=1
+BOUNDARY coefficient=5 expected=129 actual=129 high16=1
+BOUNDARY coefficient=6 expected=65535 actual=65535 high16=511
+BOUNDARY coefficient=7 expected=65536 actual=65536 high16=512
+BOUNDARY coefficient=8 expected=255 actual=255 high16=1
+BOUNDARY coefficient=9 expected=256 actual=256 high16=2
+BOUNDARY coefficient=10 expected=257 actual=257 high16=2
+COEFFICIENT_EXTRACTION exact=500/500 high16=500/500 no_rotation_key=true
+DIAGNOSIS COMPLETE: coefficient packing and LWE extraction passed; TFHE-rs key switching/radix conversion and encrypted truncation were NOT executed.

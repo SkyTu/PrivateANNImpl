@@ -1,0 +1,40 @@
+Running bfv_to_tfhe_conversion
+CUDA device 0: memory pools supported=no
+TIME BFV extraction client keys = 714.290 ms
+TIME BFV-to-TFHE evaluation key generation = 7778.545 ms
+TIME BFV/TFHE server setup = 98.304 ms
+TIME BFV conversion query encryption = 24.298 ms
+TIME BFV conversion source squared L2 = 13.182 ms
+SOURCE coefficient distance: N=4096 t=8380417 correct=4096/4096 library_noise_budget_bits=24
+TIME BFV source verification = 0.235 ms
+TIME BFV coefficients to torus LWE diagnostic = 340.838 ms
+BOUNDARY coefficient=0 expected=0 actual=0 high16=0
+BOUNDARY coefficient=1 expected=1 actual=1 high16=0
+BOUNDARY coefficient=2 expected=8323200 actual=8323200 high16=65025
+BOUNDARY coefficient=3 expected=127 actual=127 high16=0
+BOUNDARY coefficient=4 expected=128 actual=128 high16=1
+BOUNDARY coefficient=5 expected=129 actual=129 high16=1
+BOUNDARY coefficient=6 expected=65535 actual=65535 high16=511
+BOUNDARY coefficient=7 expected=65536 actual=65536 high16=512
+BOUNDARY coefficient=8 expected=255 actual=255 high16=1
+BOUNDARY coefficient=9 expected=256 actual=256 high16=2
+BOUNDARY coefficient=10 expected=257 actual=257 high16=2
+EXTRACTION_SUMMARY exact=500/500 high16=500/500 no_rotation_key=true no_relin_key=true
+TIME LWE verification decryptions = 83.648 ms
+CONVERSION count=500 drop_bits=7 score_bits=16 id_bits=9
+GPU_BIT_EXTRACTION round=6/24 batch=500
+GPU_BIT_EXTRACTION round=12/24 batch=500
+GPU_BIT_EXTRACTION round=18/24 batch=500
+GPU_BIT_EXTRACTION round=24/24 batch=500
+CONVERSION_PHASE backend=gpu samples=500 keyswitch_bits_ms=41410.221
+CONVERSION_RADIX samples=500 gpu_workers=4 ms=49317.282
+TIME Full BFV-to-native-TFHE conversion = 91126.039 ms
+TIME Native TFHE conversion verification = 15.365 ms
+PASS: native TFHE-rs conversion 500/500 ciphertext_bits=32
+TIME Converted native GPU Top-3 of 11 = 1633.693 ms
+TIME Converted Top-k verification = 0.416 ms
+PASS: converted ciphertexts consumed by native GPU Top-k
+PASS: bfv_to_tfhe_conversion
+Completed server evaluations: 4; evaluation_ms=93113.752; setup_ms=8591.139; encryption_ms=24.298; decryption_ms=99.663
+BFV-to-TFHE workload: records=500; drop_bits=7; source_distance_ms=13.182; conversion_ms=91126.039; converted_top3_of_11_ms=1633.693; fixture_chain_ms=92772.915
+Component wall time: 102129.732 ms

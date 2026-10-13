@@ -1,0 +1,2 @@
+buckets,capacity,workers,workers_used,peak_inflight,arena_mb,layers,gates,evaluation_ms,setup_ms,encryption_ms,verification_ms,verified
+2,8,4,4,4,0,3,14,1023.605,775.182,58.959,0.711,2

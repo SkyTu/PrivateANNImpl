@@ -1,0 +1,214 @@
+
+-----SwitchCKKSToFHEW-----
+
+CKKS scheme is using ring dimension 4096, number of slots 16, and supports a multiplicative depth of 3
+
+FHEW scheme is using lattice parameter 32, logQ 25, and modulus q 4096
+
+
+---Decrypting switched ciphertext with small precision (plaintext modulus 16)---
+
+Input x1: [ 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 2 3 4 5 6 ]; which rounds to: [ 0 0 0 0 0 1 1 1 1 1 1 2 3 4 5 6 ]
+FHEW decryption: 0 0 0 0 0 1 1 1 1 1 1 2 3 4 5 6 
+
+
+---Decrypting switched ciphertext with large precision (plaintext modulus 131072)---
+
+Input x2: [ 0 271 30000 131070 ]
+FHEW decryption: 0 271 30000 131070 
+
+Decomposed values for digit size of 16: 
+(0 * 16^0) + (0 * 16^1) + (0 * 16^2) + (0 * 16^3) + (0 * 16^4)
+(15 * 16^0) + (0 * 16^1) + (1 * 16^2) + (0 * 16^3) + (0 * 16^4)
+(0 * 16^0) + (3 * 16^1) + (5 * 16^2) + (7 * 16^3) + (0 * 16^4)
+(14 * 16^0) + (15 * 16^1) + (15 * 16^2) + (15 * 16^3) + (1 * 16^4)
+
+-----SwitchFHEWtoCKKS-----
+
+Output precision is only wrt the operations in CKKS after switching back.
+
+CKKS scheme is using ring dimension 8192, number of slots 16, and supports a multiplicative depth of 13
+
+FHEW scheme is using lattice parameter 1305, logQ 28, and modulus q 4096
+
+
+---Input x1: [ 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 ] encrypted under p = 4 and Q = 4096---
+Switched CKKS decryption 1: (0.99998066, 0.99966826, -0.0044810382, 0.0047496095, 0.99999999, 0.99999535, -0.0061901724, 0.0030135724, 0.99920297, 0.99999857, -0.0020740704, -0.0059005392, 0.99924018, 0.99998861, 0.0078380963, 0.0015935782, ... ); Estimated precision: 26 bits
+
+
+---Input x1: [ 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 ] encrypted under p = 16 and Q = 4096---
+Switched CKKS decryption 2: (0.96004181, 0.9744949, 0.0078125729, 0.0039065771, 0.96727343, 0.97449494, -0.015625112, -0.015623724, 0.97810272, 0.98170778, 0.0039057401, -0.027343038, 0.98891285, 0.96004269, -0.023437528, 0.027343312, ... ); Estimated precision: 27 bits
+
+
+---Input x2: [ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ] encrypted under p = 256 and Q = 268435456---
+Switched CKKS decryption 3: (-1.1022558e-05, 0.99989028, 1.9992002, 2.99728, 3.9935851, 4.987455, 5.9783471, 6.9656094, 7.9486974, 8.9269856, 9.8998919, 10.866861, 11.827203, 12.780543, 13.726131, 14.663441, ... ); Estimated precision: 23 bits
+
+
+---Input x2: [ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ] encrypted under p = 131072 and Q = 268435456---
+Switched CKKS decryption 4: (-0.00091363603, 1.002059, 1.9991719, 2.9986878, 4.0008887, 5.0013321, 5.9944349, 7.0027948, 7.9996273, 8.9972805, 10.00092, 10.999152, 11.997614, 12.996812, 13.996546, 14.995014, ... ); Estimated precision: 14 bits
+
+
+-----FloorViaSchemeSwitching-----
+
+Output precision is only wrt the operations in CKKS after switching back.
+
+CKKS scheme is using ring dimension 8192, number of slots 16, and supports a multiplicative depth of 13
+
+FHEW scheme is using lattice parameter 32, logQ 23, and modulus q 4096
+
+Input x1: [ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ]
+Expected result for EvalFloor with 2 bits: 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 
+FHEW decryption p = 32768/(1 << bits) = 8192: 0 0 0 0 1 1 1 1 2 2 2 2 3 3 3 3 
+
+Switched floor decryption modulus_LWE mod 8192: (-9.4763575e-07, -7.7381127e-07, 3.1876185e-06, 2.8816981e-07, 0.99999816, 0.99804764, 0.99804574, 0.99902254, 2.0019531, 1.9980461, 2.0000001, 1.9990227, 2.9990204, 3.0039031, 2.9970683, 2.9999964, ... ); Estimated precision: 21 bits
+
+
+-----FuncViaSchemeSwitching-----
+
+Output precision is only wrt the operations in CKKS after switching back.
+
+CKKS scheme is using ring dimension 2048, and number of slots 8
+
+FHEW scheme is using lattice parameter 32, logQ 25, and modulus q 2048
+
+Input x1: [ 0 0.3 2 4 5 6 7 8 ]
+FHEW decryption: 0 0 2 4 5 6 7 0 
+Expected result x^3 + 2*x + 1 mod p: 1 1 1 1 0 1 2 1 
+FHEW decryption mod 8: 1 1 1 1 0 1 2 1 
+
+
+Switched decryption modulus_LWE mod 8 works only for messages << p: (0.90582361, 0.89754995, 0.89754996, 0.89477513, -0.011718592, 0.90031631, 1.2731856, 0.89754996, ... ); Estimated precision: 33 bits
+
+Arcsin(switched result) * p/2pi gives the correct result if messages are < p/4: 1.00781 0.996094 0.996094 0.992187 -0.0117188 1 1.98828 0.996094 
+
+-----PolyViaSchemeSwitching-----
+
+CKKS scheme is using ring dimension 2048, number of slots 16, and supports a multiplicative depth of 15
+
+FHEW scheme is using lattice parameter 32, logQ 25, and modulus q 4096
+
+
+Input x1: [ 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 ] encrypted under p = 4 and Q = 4096
+round( 0.5 * (x1 + rot(x1,1) )^2 ): [ 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 ]
+FHEW decryption with plaintext modulus 16: 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 
+
+
+Input x2: [ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 ] encrypted under p = 131072 and Q = 33554432
+round( 0.5 * (x1 + rot(x2,2) )^2 ): [ 1 4 9 16 25 36 49 64 81 100 121 144 169 196 49 64 ]
+FHEW decryption with plaintext modulus 131072: 1 4 9 16 25 36 49 64 81 100 121 144 169 196 49 64 
+
+
+-----ComparisonViaSchemeSwitching-----
+
+Output precision is only wrt the operations in CKKS after switching back.
+
+CKKS scheme is using ring dimension 8192, number of slots 16, and supports a multiplicative depth of 17
+
+FHEW scheme is using lattice parameter 32, logQ 25, and modulus q 4096
+
+Difference of inputs: -5.25 -4.25 -3.25 -2.25 -1.25 -0.25 0.75 1.75 2.75 3.75 4.75 5.75 6.75 7.75 8.75 9.75 
+Expected sign result from CKKS: 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 
+
+FHEW decryption with plaintext modulus 131072: 131067 131068 131069 131070 131071 0 1 2 3 4 5 6 7 8 9 10 
+Expected sign result in FHEW with plaintext modulus 131072 and scale 1: 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 
+Obtained sign result in FHEW with plaintext modulus 131072 and scale 1: 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 
+Decrypted switched result: (0.99999941, 0.99999941, 0.99999941, 0.99999941, 0.99999765, 2.9622934e-10, -3.8838683e-10, 5.8682956e-07, 2.3528173e-06, 5.8840774e-07, 2.3534518e-06, 2.4725472e-10, 5.8785835e-07, 5.0384028e-10, 5.2938773e-06, 2.482788e-10, ... ); Estimated precision: 30 bits
+
+
+FHEW decryption with plaintext modulus 131072 and scale 8: 131030 131038 131046 131054 131062 131070 6 14 22 30 38 46 54 62 70 78 
+Expected sign result in FHEW with plaintext modulus 131072 and scale 8: 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 
+Obtained sign result in FHEW with plaintext modulus 131072 and scale 8: 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 
+Decrypted switched result: (0.99999941, 1, 0.99999941, 0.99999941, 0.99999941, 0.99999765, 5.8828025e-07, 5.8826801e-07, -1.6739943e-12, 2.3531012e-06, 2.3531077e-06, 5.8826796e-07, -3.034073e-12, 5.8827215e-07, 5.8828229e-07, -2.196482e-12, ... ); Estimated precision: 36 bits
+
+
+For very small LWE plaintext modulus and initial fractional inputs, the sign does not always behave properly close to the boundaries at 0 and p/2.
+
+FHEW decryption with plaintext modulus 16: 11 12 13 14 15 0 1 2 3 4 5 6 7 8 9 10 
+Expected sign result in FHEW with plaintext modulus 16 and scale 1: 1 1 1 1 1 0 0 0 0 0 0 0 0 1 1 1 
+Obtained sign result in FHEW with plaintext modulus 16 and scale 1: 1 1 1 1 1 1 0 0 0 0 0 0 0 0 1 1 
+Decrypted switched result: (1, 0.99999941, 0.99999765, 1, 0.99999941, 1, 5.8865992e-07, 2.3532254e-06, 2.3028718e-10, 5.8757978e-07, 5.8844333e-07, 2.352429e-06, 4.7237769e-10, 4.8539811e-10, 0.99999941, 1, ... ); Estimated precision: 31 bits
+
+
+-----ArgminViaSchemeSwitching-----
+
+Output precision is only wrt the operations in CKKS after switching back
+
+CKKS scheme is using ring dimension 8192, and number of slots 16, and supports a depth of 18
+
+FHEW scheme is using lattice parameter 32, logQ 25, and modulus q 4096
+
+Expected minimum value -1.125 at location 0
+Expected maximum value 15.3 at location 15
+
+Minimum value: (-1.1249904, ... ); Estimated precision: 27 bits
+
+Argmin indicator vector: (0.99999765, 5.8801172e-07, 5.8834819e-07, -1.101866e-10, 5.8795639e-07, 8.7382508e-11, 3.2570796e-10, -4.3177081e-10, 5.874105e-07, -1.66045e-11, -3.6640647e-11, 2.268955e-10, -7.0371082e-11, 4.7046726e-11, -4.1618249e-12, 8.5048502e-12, ... ); Estimated precision: 32 bits
+
+Maximum value: (15.299988, ... ); Estimated precision: 24 bits
+
+Argmax indicator vector: (-9.2636497e-11, -3.564803e-11, 3.7320645e-10, -2.6414116e-09, 1.3048426e-09, 8.5096361e-10, -3.5754496e-10, 5.8658544e-07, 2.9691628e-10, -5.9676121e-10, 1.7421126e-09, 5.8734698e-07, -9.1067266e-10, -8.6857051e-10, 5.8888468e-07, 0.99999824, ... ); Estimated precision: 30 bits
+
+
+-----ArgminViaSchemeSwitchingAlt-----
+
+Output precision is only wrt the operations in CKKS after switching back
+
+CKKS scheme is using ring dimension 8192, and number of slots 16, and supports a depth of 18
+
+FHEW scheme is using lattice parameter 32, logQ 25, and modulus q 4096
+
+Expected minimum value -1.125 at location 0
+Expected maximum value 15.3 at location 15
+
+Minimum value: (-1.1249761, ... ); Estimated precision: 34 bits
+
+Argmin indicator vector: (0.99999647, 5.8827058e-07, 1.3714839e-12, -6.0062542e-13, 5.8827295e-07, -2.7611393e-12, -9.516337e-13, 1.5021875e-13, 2.3530881e-06, 1.4958976e-12, 1.9115815e-13, 2.5878517e-12, -1.1819656e-12, -2.1319472e-13, 9.7361302e-13, 2.5076269e-12, ... ); Estimated precision: 39 bits
+
+Maximum value: (15.299911, ... ); Estimated precision: 25 bits
+
+Argmax indicator vector: (2.4188683e-10, 2.5184512e-10, 1.7289751e-10, -2.0201586e-10, 9.0186472e-10, 1.5286997e-10, -2.4846087e-11, 5.2944413e-06, -8.0423389e-10, 5.0900045e-10, -3.8237127e-10, 5.8781081e-07, -7.589694e-10, 5.8821361e-07, 5.224699e-10, 0.99999353, ... ); Estimated precision: 30 bits
+
+
+-----ArgminViaSchemeSwitchingUnit-----
+
+Output precision is only wrt the operations in CKKS after switching back
+
+CKKS scheme is using ring dimension 8192, and number of slots 32, and supports a depth of 18
+
+FHEW scheme is using lattice parameter 32, logQ 25, and modulus q 4096
+
+Input: [ -1.125 -1.12 5 6 -1 2 8 -1 9 10 11 12 13 14 15.25 15.3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+Input scaled: [ -0.00109863 -0.00109375 0.00488281 0.00585938 -0.000976562 0.00195312 0.0078125 -0.000976562 0.00878906 0.00976562 0.0107422 0.0117188 0.0126953 0.0136719 0.0148926 0.0149414 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+Expected minimum value -0.00109863 at location 0
+Expected maximum value 0.0149414 at location 15
+
+Minimum value: (-0.0010986315, ... ); Estimated precision: 39 bits
+
+Argmin indicator vector: (0.99999882, 2.1856284e-11, -1.6156148e-11, -2.068626e-11, 3.0541686e-10, -2.3124761e-12, -1.7570546e-11, 6.5859163e-12, -2.8161023e-11, 7.5543635e-12, -8.9496507e-12, 1.5697689e-11, -2.4879492e-11, -4.9389076e-12, -2.0731075e-11, -1.9245258e-11, 5.8825661e-07, -1.744798e-11, -1.3668204e-11, -1.2858691e-11, 2.1420307e-11, 4.1769954e-11, 1.4427531e-11, 4.8979855e-11, 5.882776e-07, -2.1498599e-11, -8.3774385e-13, -9.9586343e-12, -1.1880102e-11, -1.2239478e-11, -1.7700402e-14, 2.2715269e-11, ... ); Estimated precision: 35 bits
+
+Maximum value: (0.014941368, ... ); Estimated precision: 38 bits
+
+Argmax indicator vector: (-2.452687e-10, 6.2635555e-11, -5.3602872e-11, 3.0704654e-11, -3.5601203e-11, 1.1723629e-10, 6.9559114e-11, -3.4376936e-10, 7.7983479e-11, -4.4964922e-11, -1.0899404e-10, 5.8684248e-07, -2.183884e-10, 5.8857458e-07, 5.2943382e-06, 0.99999118, -2.5940674e-11, 2.763564e-11, 2.0669274e-10, 1.5015767e-10, 9.9090891e-11, -1.1227434e-10, 1.2527787e-11, 1.3783214e-10, 2.1727786e-10, -9.828199e-11, 7.3342474e-11, 2.4708699e-10, 1.2798979e-10, 7.2387784e-11, 1.5519121e-11, 2.3530444e-06, ... ); Estimated precision: 32 bits
+
+
+-----ArgminViaSchemeSwitchingAltUnit-----
+
+Output precision is only wrt the operations in CKKS after switching back
+
+CKKS scheme is using ring dimension 8192, and number of slots 32, and supports a depth of 18
+
+FHEW scheme is using lattice parameter 32, logQ 25, and modulus q 4096
+
+Input: [ -1.125 -1.12 5 6 -1 2 8 -1 9 10 11 12 13 14 15.25 15.3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+Input scaled: [ -0.00109863 -0.00109375 0.00488281 0.00585938 -0.000976562 0.00195312 0.0078125 -0.000976562 0.00878906 0.00976562 0.0107422 0.0117188 0.0126953 0.0136719 0.0148926 0.0149414 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ]
+Expected minimum value -0.00109863 at location 0
+Expected maximum value 0.0149414 at location 15
+
+Minimum value: (-0.0010986299, ... ); Estimated precision: 40 bits
+
+Argmin indicator vector: (0.99999294, 2.3530906e-06, -2.2842862e-12, 3.0416413e-12, 2.3530831e-06, 2.1454202e-11, 5.6433555e-13, -2.236813e-12, 3.3286624e-12, -8.1672079e-12, -6.3279518e-13, 3.9756551e-12, -2.4098977e-12, -9.8588514e-12, 7.5593354e-12, -4.904757e-12, 6.4701577e-12, 1.9409661e-11, -1.0920513e-11, -6.6592943e-12, 2.1185269e-11, 3.1995553e-13, 8.0314318e-12, 1.7045524e-12, 1.2385731e-12, 6.5952464e-12, 7.8938942e-12, -1.4462082e-11, 8.9143985e-13, 9.2315038e-12, 2.3530498e-06, 6.5947541e-12, ... ); Estimated precision: 36 bits
+
+Maximum value: (0.014941334, ... ); Estimated precision: 36 bits
+
+Argmax indicator vector: (-6.906684e-11, 2.3592601e-10, 1.1678971e-11, -2.2445531e-10, -3.9520549e-10, -9.5769702e-11, -4.3516738e-11, -1.2950055e-10, -1.8205247e-10, -2.0679828e-12, 3.2180146e-11, 5.8837804e-07, -1.914923e-10, -1.0952068e-10, 5.8813198e-07, 0.99999412, 1.2382565e-10, 9.3081754e-11, 2.5702448e-10, -1.6666324e-10, 2.0518416e-10, -6.1968793e-11, 3.0520406e-10, 2.3533418e-06, -7.0338449e-11, 6.9126745e-11, 2.5915694e-11, -1.0891873e-10, 3.7303724e-11, 1.4187451e-10, 9.7546515e-11, 2.353103e-06, ... ); Estimated precision: 32 bits
+

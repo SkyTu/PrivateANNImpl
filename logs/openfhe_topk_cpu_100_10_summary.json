@@ -1,0 +1,95 @@
+{
+  "library": "OpenFHE v1.6.1",
+  "backend": "CPU, CKKS-FHEW scheme switching",
+  "omp_threads": 8,
+  "records": 100,
+  "k_smallest": 10,
+  "dimensions": 128,
+  "coordinate_bits": 8,
+  "padded_slots": 128,
+  "ckks_ring_dimension": 65536,
+  "ckks_depth": 23,
+  "ckks_large_digits": 4,
+  "lwe_dimension": 1305,
+  "ckks_security_setting": "HEStd_128_classic",
+  "binfhe_security_setting": "STD128",
+  "topk_native_api": false,
+  "algorithm": "10 native argmin calls with encrypted exclusion and mask refresh",
+  "intermediate_client_decryption": false,
+  "argmax_index_verified": true,
+  "ordered_topk_indices_verified": true,
+  "indices": [
+    0,
+    28,
+    49,
+    9,
+    48,
+    36,
+    26,
+    85,
+    32,
+    61
+  ],
+  "input_unchanged_verified": true,
+  "exact_distance_values_verified": false,
+  "max_selected_value_absolute_error": 9386.357146,
+  "topk_evaluation_ms": 1061546.405776,
+  "native_max_evaluation_ms": 69715.937161,
+  "stages_ms": {
+    "plaintext_distances_and_reference": [
+      0.030934
+    ],
+    "setup_keygen": [
+      5839.835263
+    ],
+    "comparison_precompute": [
+      156.061176
+    ],
+    "client_encoding_encryption": [
+      277.943152
+    ],
+    "native_max": [
+      69715.937161
+    ],
+    "native_argmin": [
+      69011.004557,
+      67063.413994,
+      67867.888981,
+      68168.387823,
+      68682.277241,
+      68134.335435,
+      68903.06394,
+      71024.348219,
+      71108.013392,
+      71575.570154
+    ],
+    "encrypted_mask_refresh_update": [
+      40821.043444,
+      40643.680181,
+      40966.584297,
+      41627.280515,
+      41032.324485,
+      40869.641329,
+      41515.358908,
+      41172.435093,
+      41359.753788,
+      0.0
+    ],
+    "topk_evaluation_total": [
+      1061546.405776
+    ],
+    "client_decryption_verification": [
+      371.726834
+    ],
+    "wall_total": [
+      1137991.270049
+    ]
+  },
+  "exit_code": 0,
+  "limitations": [
+    "One fixed data set and one completed timed run.",
+    "No tie coverage or guarantee for arbitrary close 23-bit distances.",
+    "Returned CKKS values are approximate; correctness assertion targets winner indices.",
+    "Standalone native max scalar value was not checked for exact integer accuracy."
+  ]
+}

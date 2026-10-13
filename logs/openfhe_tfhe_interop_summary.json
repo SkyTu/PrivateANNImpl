@@ -1,0 +1,60 @@
+{
+  "bridge_status": "BLOCKED",
+  "elements_per_case": 500,
+  "coordinate_bits": 8,
+  "dimensions": 128,
+  "omp_threads": "8",
+  "conversion": [
+    {
+      "case": "full23",
+      "count": "500",
+      "dimensions": "128",
+      "ring_dimension": "16384",
+      "lwe_dimension": "1305",
+      "q": "33554432",
+      "p": "8388608",
+      "distance_ms": "0.109881",
+      "setup_keygen_ms": "212.908782",
+      "encode_encrypt_ms": "6.606001",
+      "precompute_ms": "150.489952",
+      "switch_ms": "174.000373",
+      "verify_ms": "3.277881",
+      "exact_matches": "65",
+      "modular_matches": "65",
+      "max_circular_error": "10"
+    },
+    {
+      "case": "modular_control",
+      "count": "500",
+      "dimensions": "128",
+      "ring_dimension": "16384",
+      "lwe_dimension": "1305",
+      "q": "33554432",
+      "p": "131072",
+      "distance_ms": "0.109881",
+      "setup_keygen_ms": "212.908782",
+      "encode_encrypt_ms": "6.606001",
+      "precompute_ms": "104.113251",
+      "switch_ms": "169.169954",
+      "verify_ms": "3.264531",
+      "exact_matches": "3",
+      "modular_matches": "500",
+      "max_circular_error": "0"
+    }
+  ],
+  "raw_import_matches_openfhe_per_case": 500,
+  "gpu_input_conformant_per_case": 0,
+  "gpu_minmax_executed": false,
+  "end_to_end_gpu_evaluation_ms": null,
+  "probe_exit_codes": {
+    "full23": 2,
+    "modular_control": 2
+  },
+  "experiment_wall_ms_excluding_build": 951.6647899872623,
+  "notes": [
+    "Each case switches the same 500 full distances; the control checks residues modulo p.",
+    "Diagnostic decryption never feeds a re-encryption step.",
+    "Raw LWE import is not a complete bridge to TFHE-rs GPU integers.",
+    "The OpenFHE intermediate modulus remains at the upstream default of 27 bits."
+  ]
+}

@@ -1,0 +1,62 @@
+Running bfv_distance
+CUDA device 0: memory pools supported=no
+TIME BFV client setup/key generation = 47.605 ms
+TIME BFV crypto utilities setup = 0.108 ms
+TIME BFV server setup = 0.046 ms
+PASS: query/record bounds, dimension guards, no relin or rotation keys
+TIME BFV query encryption = 0.373 ms
+TIME BFV squared L2 = 0.292 ms
+TIME BFV result decryption = 0.084 ms
+TIME BFV input verification decryption = 0.112 ms
+PASS: 5^2 - 2*5*3 + 3^2 = 4 in every BFV coefficient
+TIME BFV query encryption = 0.706 ms
+TIME BFV squared L2 = 0.431 ms
+TIME BFV result decryption = 0.051 ms
+TIME BFV input verification decryption = 0.215 ms
+TIME BFV query encryption = 0.722 ms
+TIME BFV squared L2 = 0.399 ms
+TIME BFV result decryption = 0.057 ms
+TIME BFV input verification decryption = 0.214 ms
+TIME BFV query encryption = 0.701 ms
+TIME BFV squared L2 = 0.393 ms
+TIME BFV result decryption = 0.055 ms
+TIME BFV input verification decryption = 0.214 ms
+PASS: entity reuse, 3D L2, negative differences, all coefficients, unchanged inputs
+TIME BFV query encryption = 21.736 ms
+TIME BFV squared L2 = 11.386 ms
+TIME BFV result decryption = 0.052 ms
+TIME BFV input verification decryption = 6.773 ms
+TIME BFV query encryption = 21.495 ms
+TIME BFV squared L2 = 11.127 ms
+TIME BFV result decryption = 0.052 ms
+TIME BFV input verification decryption = 6.776 ms
+TIME BFV query encryption = 21.486 ms
+TIME BFV squared L2 = 11.175 ms
+TIME BFV result decryption = 0.049 ms
+TIME BFV input verification decryption = 6.796 ms
+PASS: maximum 128D uint8 distance = 8,323,200; maximum norms cancel to zero
+BFV workload: records=1000000, dimensions=128, coordinate_bits=8, plaintext_modulus=8380417, coefficients_per_batch=4096, batches=245, final_batch_records=576
+TIME BFV 1M query encryption = 21.481 ms
+BFV verified 65536/1000000 records (16/245 batches)
+BFV verified 131072/1000000 records (32/245 batches)
+BFV verified 196608/1000000 records (48/245 batches)
+BFV verified 262144/1000000 records (64/245 batches)
+BFV verified 327680/1000000 records (80/245 batches)
+BFV verified 393216/1000000 records (96/245 batches)
+BFV verified 458752/1000000 records (112/245 batches)
+BFV verified 524288/1000000 records (128/245 batches)
+BFV verified 589824/1000000 records (144/245 batches)
+BFV verified 655360/1000000 records (160/245 batches)
+BFV verified 720896/1000000 records (176/245 batches)
+BFV verified 786432/1000000 records (192/245 batches)
+BFV verified 851968/1000000 records (208/245 batches)
+BFV verified 917504/1000000 records (224/245 batches)
+BFV verified 983040/1000000 records (240/245 batches)
+BFV verified 1000000/1000000 records (245/245 batches)
+TIME BFV 1M reused query verification = 6.552 ms
+PASS: 1,000,000 BFV distances (128D uint8), final-batch padding, and reused query
+PASS: bfv_distance
+Completed server evaluations: 252; evaluation_ms=2764.212; setup_ms=47.759; encryption_ms=88.701; decryption_ms=39.804
+BFV distance workload: records_verified=1000000; dimensions=128; batches=245; distance_evaluation_ms=2729.010
+BFV distance evaluation throughput: 366433.304 records/s
+Component wall time: 4069.254 ms

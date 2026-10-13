@@ -1,0 +1,15 @@
+Running bucket_parallel_once
+CUDA device 0: memory pools supported=no
+SCOPE: one trial per configuration; GPU native gt + paired field CMUX.
+Distances are 128D uint8 L2, stored with IDs as separate FheUint32.
+TIME client_keys = 658.227 ms
+CONFIG launch_check_2x4_w4 buckets=2 capacity=4 workers=4 layers=2 minimum_gates=6
+TIME server_setup = 100.651 ms
+TIME input_encryption = 29.295 ms
+TIME launch_check_2x4_w4 = 441.568 ms
+Saved launch metadata: logs/tfhe_launch_shapes.csv
+TIME verify_winners = 0.576 ms
+VERIFIED launch_check_2x4_w4 winners=2 workers_used=4 peak_inflight=4
+PASS: bucket_parallel_once
+Completed server evaluations: 1; evaluation_ms=441.568; setup_ms=758.878; encryption_ms=29.295; decryption_ms=0.576
+Component wall time: 1365.934 ms

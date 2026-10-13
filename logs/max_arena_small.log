@@ -1,0 +1,7 @@
+Running bucket_max_once
+CUDA device 0: memory pools supported=no
+CONFIG buckets=2 capacity=8 workers=4 arena_mb=8192 operation=maximum_with_id
+TIME client_keys = 649.200 ms
+TIME server_setup = 103.835 ms
+TIME input_encryption = 58.501 ms
+CUPTI failure: CUPTI_ERROR_NOT_INITIALIZED

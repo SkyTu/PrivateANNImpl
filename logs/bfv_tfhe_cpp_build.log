@@ -1,0 +1,27 @@
+[ 10%] Built target tfhe_rs_backend
+[ 17%] Built target tfhe_topk_once
+[ 37%] Built target privateimpl
+[ 41%] Building CXX object CMakeFiles/bfv_distance_test.dir/test/bfv_distance_test.cpp.o
+[ 44%] Building CXX object CMakeFiles/bfv_conversion_diagnose.dir/experiment/bfv_conversion/diagnose.cpp.o
+[ 48%] Building CXX object CMakeFiles/tfhe_topk.dir/test/tfhe_topk.cpp.o
+[ 51%] Building CXX object CMakeFiles/bfc_tfhe_conversion.dir/test/bfc_tfhe_conversion.cpp.o
+[ 55%] Linking CUDA device code CMakeFiles/bfv_distance_test.dir/cmake_device_link.o
+[ 58%] Linking CUDA device code CMakeFiles/tfhe_topk.dir/cmake_device_link.o
+[ 62%] Linking CUDA device code CMakeFiles/bfc_tfhe_conversion.dir/cmake_device_link.o
+[ 65%] Linking CUDA device code CMakeFiles/bfv_conversion_diagnose.dir/cmake_device_link.o
+[ 68%] Linking CXX executable bfv_distance_test
+[ 72%] Linking CXX executable tfhe_topk
+[ 72%] Built target bfv_distance_test
+[ 75%] Building CXX object CMakeFiles/component_checks.dir/test/bfv_distance_test.cpp.o
+[ 79%] Linking CXX executable bfc_tfhe_conversion
+[ 82%] Linking CXX executable bfv_conversion_diagnose
+[ 82%] Built target tfhe_topk
+[ 86%] Building CXX object CMakeFiles/component_checks.dir/test/bfc_tfhe_conversion.cpp.o
+[ 86%] Built target bfc_tfhe_conversion
+[ 89%] Building CXX object CMakeFiles/component_checks.dir/test/tfhe_topk.cpp.o
+[ 89%] Built target bfv_conversion_diagnose
+[ 89%] Built target component_checks
+[ 93%] Building CXX object CMakeFiles/check.dir/test/check.cpp.o
+[ 96%] Linking CUDA device code CMakeFiles/check.dir/cmake_device_link.o
+[100%] Linking CXX executable check
+[100%] Built target check

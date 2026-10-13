@@ -1,0 +1,2 @@
+status,backend,openfhe_version,vectors,dimensions,input_bits,scalar_products,ring_dimension,slots,batches,omp_threads,setup_ms,query_encoding_encryption_ms,record_encoding_ms,multiplication_ms,server_encoding_plus_multiplication_ms,decryption_ms,verification_ms,wall_ms,max_absolute_error,scalar_products_per_second
+PASS,CPU,1.6.1,65,128,8,8320,16384,8192,2,8,14.337223,5.036818,1.08988,0.290859,1.380739,12.17939,0.06494,33.587417,6.04287924943e-05,28604925.4106

@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "source_lwe_dimension": 4096,
+  "target_lwe_dimension": 2048, "auxiliary_lwe_dimension": 769,
+  "keys": [{"name":"source_to_big","expanded_payload_bytes":469991424,"seeded_payload_bytes":229376,"seeded_serialized_bytes":229448},
+    {"name":"big_to_small","expanded_payload_bytes":25231360,"seeded_payload_bytes":32768,"seeded_serialized_bytes":32840},
+    {"name":"precise_bsk","expanded_payload_bytes":604766208,"seeded_payload_bytes":302383104,"seeded_serialized_bytes":302383184},
+    {"name":"output_bsk","expanded_payload_bytes":201588736,"seeded_payload_bytes":100794368,"seeded_serialized_bytes":100794448}],
+  "bridge_expanded_payload_bytes": 1301577728,
+  "bridge_seeded_payload_bytes": 403439616,
+  "bridge_seeded_serialized_bytes": 403439920,
+  "production_bridge_cpu_retained_payload_bytes": 1301577728,
+  "observed_bridge_gpu_allocation_bytes": 1310130176,
+  "native_tfhe_compressed_server_key_serialized_bytes": 120668379,
+  "observed_native_tfhe_gpu_allocation_bytes": 317128704,
+  "seeded_bridge_plus_native_serialized_bytes": 524108299,
+  "production_seeded_bridge_enabled": false,
+  "scope": "Fresh keys under current bridge parameters; seeded generation, decompression, Fourier conversion and GPU upload only. No conversion accuracy or throughput test. GPU deltas include allocator overhead and may include library initialization; exclude ciphertexts and evaluation workspaces."
+}

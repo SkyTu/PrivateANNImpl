@@ -1,0 +1,83 @@
+{
+  "scope": "CUDA profiler capture around two buckets of 300 records, 598 minimum gates, four host workers",
+  "profiled_evaluation_ms": 41912.754,
+  "correct_bucket_winners": 2,
+  "host_threads_with_cuda_calls": 4,
+  "gpu_kernel_activity_table_present": false,
+  "gpu_kernel_overlap_measured": false,
+  "cuda_api_thread_seconds_sum": 149.57249198600005,
+  "allocation_and_free_thread_seconds_sum": 89.45505250299999,
+  "allocation_and_free_fraction_of_recorded_api_thread_time": 0.5980715525644446,
+  "api_statistics": [
+    {
+      "api": "cudaFree_v3020",
+      "calls": 115416,
+      "thread_seconds_sum": 44.896142071
+    },
+    {
+      "api": "cudaMalloc_v3020",
+      "calls": 115420,
+      "thread_seconds_sum": 44.558910432
+    },
+    {
+      "api": "cudaLaunchKernel_v7000",
+      "calls": 168038,
+      "thread_seconds_sum": 25.063009649
+    },
+    {
+      "api": "cudaLaunchCooperativeKernel_v9000",
+      "calls": 156078,
+      "thread_seconds_sum": 21.521858923
+    },
+    {
+      "api": "cudaMemcpyAsync_v3020",
+      "calls": 94490,
+      "thread_seconds_sum": 11.855137869
+    },
+    {
+      "api": "cudaMemsetAsync_v3020",
+      "calls": 29906,
+      "thread_seconds_sum": 0.652183767
+    },
+    {
+      "api": "cudaStreamSynchronize_v3020",
+      "calls": 50836,
+      "thread_seconds_sum": 0.412912639
+    },
+    {
+      "api": "cudaStreamCreateWithFlags_v5000",
+      "calls": 1200,
+      "thread_seconds_sum": 0.353619576
+    },
+    {
+      "api": "cudaMemGetInfo_v3020",
+      "calls": 7774,
+      "thread_seconds_sum": 0.159389577
+    },
+    {
+      "api": "cudaStreamDestroy_v5050",
+      "calls": 1200,
+      "thread_seconds_sum": 0.09928736
+    },
+    {
+      "api": "cuProfilerStart",
+      "calls": 1,
+      "thread_seconds_sum": 2.5568e-05
+    },
+    {
+      "api": "cudaDeviceSynchronize_v3020",
+      "calls": 2,
+      "thread_seconds_sum": 1.4555e-05
+    }
+  ],
+  "diagnostic_warnings": [
+    "Installed CUDA driver version (13.0) is not supported by this build of Nsight Systems. CUDA trace will be collected using libraries for driver version 12.8",
+    "CUDA device 0: Unified Memory trace is not supported by the current driver version or configuration.",
+    "Not all CUDA events might have been collected."
+  ],
+  "limitations": [
+    "API durations overlap across host threads; sums are not wall-clock times or GPU computation times.",
+    "Driver/profiler compatibility warnings and missing GPU kernel activity prevent measuring kernel overlap or attributing serialization.",
+    "Profiling instrumentation affects timing; use the unprofiled 38195.831 ms measurement for baseline performance."
+  ]
+}

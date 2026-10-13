@@ -1,0 +1,27 @@
+{
+  "tfhe-rs": {
+    "path": "tfhe-rs",
+    "url": "https://github.com/zama-ai/tfhe-rs.git",
+    "commit": "638f4c8bab899659374b98df766ea7eb8acfc55f"
+  },
+  "heongpu": {
+    "path": "heongpu",
+    "url": "https://github.com/Alisah-Ozcan/HEonGPU.git",
+    "commit": "0d551e4e2db26f2cbec47926e41923dbad18759e"
+  },
+  "rngongpu": {
+    "path": "heongpu/thirdparty/RNGonGPU",
+    "url": "https://github.com/Alisah-Ozcan/RNGonGPU",
+    "commit": "d9aaa6b5d7cc67a2ca307ef9d6203f25cc2458b4"
+  },
+  "tfhe-sanitization": {
+    "path": "tfhe-sanitization",
+    "url": "https://github.com/SNUCP/tfhe-sanitization.git",
+    "commit": "650a3ebcbad71655ec6e56dd0dfdfa122c128e11"
+  },
+  "openfhe": {
+    "path": "openfhe",
+    "url": "https://github.com/openfheorg/openfhe-development.git",
+    "commit": "b59e1f291965f14fbee5172cd83a20f5b856204f"
+  }
+}

@@ -1,0 +1,3 @@
+kind,sm_count,concurrent_kernels,blocks_per_grid,threads_per_block,grid0_span_ms,grid1_span_ms,max_cross_grid_block_overlap_ms,distinct_sms_grid0,distinct_sms_grid1,distinct_sms_combined
+ordinary,142,1,8,32,5.00019,5.00019,4.99507,8,8,16
+cooperative,142,1,8,32,5.00019,5.00019,4.9961,8,8,16

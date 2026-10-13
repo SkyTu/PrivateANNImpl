@@ -1,0 +1,3 @@
+case,count,dimensions,ring_dimension,lwe_dimension,q,p,distance_ms,setup_keygen_ms,encode_encrypt_ms,precompute_ms,switch_ms,verify_ms,exact_matches,modular_matches,max_circular_error
+full23,500,128,16384,1305,33554432,8388608,0.109881,212.908782,6.606001,150.489952,174.000373,3.277881,65,65,10
+modular_control,500,128,16384,1305,33554432,131072,0.109881,212.908782,6.606001,104.113251,169.169954,3.264531,3,500,0

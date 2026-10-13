@@ -1,0 +1,15 @@
+-- Finding CCCL components: Thrust;CUB;libcudacxx
+-- cccl_cmake_dir: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/heongpu-install/lib/rapids/cmake/cccl
+-- Finding CCCL components: Thrust;CUB;libcudacxx
+-- cccl_cmake_dir: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/heongpu-install/lib/rapids/cmake/cccl
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found suitable version "3.0.2", minimum required is "1.1.1") found components: Crypto SSL
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+[ 38%] Built target tfhe_rs_backend
+[ 83%] Built target privateimpl
+[ 88%] Building CXX object CMakeFiles/bfv_key_size.dir/experiment/bfv/key_size.cpp.o
+[ 94%] Linking CUDA device code CMakeFiles/bfv_key_size.dir/cmake_device_link.o
+[100%] Linking CXX executable bfv_key_size
+[100%] Built target bfv_key_size

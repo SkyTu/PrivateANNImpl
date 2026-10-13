@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "ring_degree": 4096,
+  "plaintext_modulus": 8380417,
+  "key_rns_moduli": 3,
+  "ciphertext_rns_moduli": 2,
+  "coefficient_word_bytes": 8,
+  "secret_key_payload_bytes": 98304,
+  "public_key_payload_bytes": 196608,
+  "secret_key_serialized_bytes": 98328,
+  "public_key_serialized_bytes": 196624,
+  "total_pair_payload_bytes": 294912,
+  "relinearization_key_bytes": 0,
+  "rotation_key_bytes": 0,
+  "server_distance_evaluation_key_bytes": 0,
+  "scope": "BFV linear distance only; excludes context, queries, ciphertexts, allocator overhead and TFHE conversion keys"
+}

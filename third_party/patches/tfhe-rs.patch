@@ -1,0 +1,243 @@
+diff --git a/backends/tfhe-cuda-backend/build.rs b/backends/tfhe-cuda-backend/build.rs
+index b066ab83e..92da5b03c 100644
+--- a/backends/tfhe-cuda-backend/build.rs
++++ b/backends/tfhe-cuda-backend/build.rs
+@@ -25,6 +25,7 @@ fn main() {
+     println!("cargo::rerun-if-changed=cuda/src");
+     println!("cargo::rerun-if-changed=cuda/tests_and_benchmarks");
+     println!("cargo::rerun-if-changed=cuda/CMakeLists.txt");
++    println!("cargo::rerun-if-env-changed=TFHE_CUDA_ARCH");
+     println!("cargo::rerun-if-changed=src");
+ 
+     if std::env::consts::OS == "linux" {
+diff --git a/backends/tfhe-cuda-backend/cuda/CMakeLists.txt b/backends/tfhe-cuda-backend/cuda/CMakeLists.txt
+index 7a0cb162b..9aa3877c2 100644
+--- a/backends/tfhe-cuda-backend/cuda/CMakeLists.txt
++++ b/backends/tfhe-cuda-backend/cuda/CMakeLists.txt
+@@ -34,6 +34,16 @@ else()
+   set(CUDA_SUCCESS "FALSE")
+ endif()
+ 
++set(TFHE_CUDA_ARCH "$ENV{TFHE_CUDA_ARCH}")
++if(NOT TFHE_CUDA_ARCH STREQUAL "")
++  if(NOT TFHE_CUDA_ARCH MATCHES "^[0-9]+$")
++    message(FATAL_ERROR "TFHE_CUDA_ARCH must be one numeric architecture, e.g. 89")
++  endif()
++  # Allow compilation for a known deployment GPU without a visible build GPU.
++  set(ARCH "-arch=sm_${TFHE_CUDA_ARCH}")
++  set(CUDA_SUCCESS "TRUE")
++endif()
++
+ if(${MULTI_ARCH})
+   message(STATUS "Multi-architecture GPU build enabled, 75, 80, 86, 89")
+   message(STATUS "CUDA Version: ${CUDA_VERSION_STRING}")
+@@ -68,7 +78,11 @@ if(${MULTI_ARCH})
+   set(CUDA_ARCH "750")
+   set(CMAKE_CUDA_ARCHITECTURES 75 80 86 89)
+ elseif(${CUDA_SUCCESS})
+-  set(CMAKE_CUDA_ARCHITECTURES native)
++  if(NOT TFHE_CUDA_ARCH STREQUAL "")
++    set(CMAKE_CUDA_ARCHITECTURES "${TFHE_CUDA_ARCH}")
++  else()
++    set(CMAKE_CUDA_ARCHITECTURES native)
++  endif()
+   string(REPLACE "-arch=sm_" "" CUDA_ARCH "${ARCH}")
+   set(CUDA_ARCH "${CUDA_ARCH}0")
+ else()
+diff --git a/backends/tfhe-cuda-backend/cuda/src/device.cu b/backends/tfhe-cuda-backend/cuda/src/device.cu
+index 707ede866..e7eaa2406 100644
+--- a/backends/tfhe-cuda-backend/cuda/src/device.cu
++++ b/backends/tfhe-cuda-backend/cuda/src/device.cu
+@@ -3,6 +3,7 @@
+ #include <cstdint>
+ #include <cuda_runtime.h>
+ #include <mutex>
++#include "utils/fallback_cache.cuh"
+ #ifdef USE_NVTOOLS
+ #include <cuda_profiler_api.h>
+ #endif
+@@ -63,6 +64,14 @@ void cuda_setup_mempool(uint32_t caller_gpu_index) {
+     for (uint32_t gpu_index = 0; gpu_index < num_gpus; gpu_index++) {
+       cuda_set_device(gpu_index);
+ 
++      // Match the capability checks in cuda_malloc_async/cuda_drop_async.
++      // A vGPU may support CUDA while exposing no device memory pools.
++      int support_async_alloc = 0;
++      check_cuda_error(cudaDeviceGetAttribute(
++          &support_async_alloc, cudaDevAttrMemoryPoolsSupported, gpu_index));
++      if (!support_async_alloc)
++        continue;
++
+       size_t total_mem, free_mem;
+       check_cuda_error(cudaMemGetInfo(&free_mem, &total_mem));
+ 
+@@ -193,7 +202,7 @@ void *cuda_malloc_with_size_tracking_async(uint64_t size, cudaStream_t stream,
+   if (support_async_alloc) {
+     check_cuda_error(cudaMallocAsync((void **)&ptr, size, stream));
+   } else {
+-    check_cuda_error(cudaMalloc((void **)&ptr, size));
++    ptr = privateimpl_fallback::allocate(size, stream, gpu_index);
+   }
+ #else
+   check_cuda_error(cudaMalloc((void **)&ptr, size));
+@@ -438,6 +447,7 @@ int cuda_get_number_of_sms() {
+ /// Drop a cuda array
+ void cuda_drop(void *ptr, uint32_t gpu_index) {
+   cuda_set_device(gpu_index);
++  if (privateimpl_fallback::release(ptr, nullptr, gpu_index, true)) return;
+   check_cuda_error(cudaFree(ptr));
+ }
+ 
+@@ -460,7 +470,8 @@ void cuda_drop_with_size_tracking_async(void *ptr, cudaStream_t stream,
+   if (support_async_alloc) {
+     check_cuda_error(cudaFreeAsync(ptr, stream));
+   } else {
+-    check_cuda_error(cudaFree(ptr));
++    if (!privateimpl_fallback::release(ptr, stream, gpu_index))
++      check_cuda_error(cudaFree(ptr));
+   }
+ #else
+   check_cuda_error(cudaFree(ptr));
+diff --git a/backends/tfhe-cuda-backend/cuda/src/utils/fallback_cache.cuh b/backends/tfhe-cuda-backend/cuda/src/utils/fallback_cache.cuh
+new file mode 100644
+index 000000000..436aa5a69
+--- /dev/null
++++ b/backends/tfhe-cuda-backend/cuda/src/utils/fallback_cache.cuh
+@@ -0,0 +1,137 @@
++#pragma once
++
++#include <algorithm>
++#include <map>
++#include <mutex>
++#include <vector>
++
++// Opt-in contiguous arena for devices without CUDA memory-pool support.
++// One cudaMalloc reserves the entire arena per device; later allocations
++// are aligned slices or recycled slices. No secret data determines sizes.
++// A release event prevents reuse before the previous stream finishes.
++// The context owns the backing storage until process exit. Exhaustion fails
++// explicitly rather than reintroducing cudaMalloc in the measured region.
++namespace privateimpl_fallback {
++struct Block {
++  size_t bytes;
++  uint32_t device;
++  cudaEvent_t ready;
++  cudaStream_t last_stream = nullptr;
++  bool available = false;
++};
++struct Arena { unsigned char *base = nullptr; size_t used = 0; };
++struct Cache {
++  size_t limit = 0;
++  std::mutex mutex;
++  std::map<void *, Block> blocks;
++  std::map<uint32_t, Arena> arenas;
++  std::map<std::pair<uint32_t, size_t>, std::vector<void *>> free;
++  uint64_t hits = 0, slices = 0, releases = 0;
++  size_t live_bytes = 0, peak_live_bytes = 0;
++  Cache() {
++    const auto *value = std::getenv("PRIVATEIMPL_TFHE_ARENA_MB");
++    if (value) {
++      char *end = nullptr;
++      const auto megabytes = std::strtoull(value, &end, 10);
++      if (end == value || *end || megabytes > 32768)
++        PANIC("PRIVATEIMPL_TFHE_ARENA_MB must be an integer in [0, 32768]");
++      limit = megabytes * size_t(1024 * 1024);
++    }
++  }
++  ~Cache() {
++    if (!limit) return;
++    size_t bytes = 0, available = 0;
++    for (const auto &[device, arena] : arenas) bytes += arena.used;
++    for (const auto &[ptr, block] : blocks)
++      if (block.available) available += block.bytes;
++    std::fprintf(stderr,
++        "TFHE_ARENA cuda_malloc_calls=%zu reused_slices=%llu fresh_slices=%llu "
++        "releases=%llu reserved_bytes=%zu carved_bytes=%zu "
++        "peak_live_bytes=%zu available_bytes=%zu\n",
++        arenas.size(), (unsigned long long)hits, (unsigned long long)slices,
++        (unsigned long long)releases, arenas.size() * limit, bytes,
++        peak_live_bytes, available);
++  }
++};
++inline Cache &cache() { static Cache value; return value; }
++
++inline void *allocate(size_t bytes, cudaStream_t stream, uint32_t device) {
++  auto &c = cache();
++  if (!c.limit || !bytes) {
++    void *ptr = nullptr;
++    check_cuda_error(cudaMalloc(&ptr, bytes));
++    return ptr;
++  }
++  std::unique_lock lock(c.mutex);
++  // Slice alignment matches cudaMalloc's minimum device alignment.
++  if (bytes > c.limit) PANIC("TFHE arena request exceeds its capacity");
++  bytes = (bytes + 255) & ~size_t(255);
++  auto &arena = c.arenas[device];
++  if (!arena.base)
++    check_cuda_error(cudaMalloc((void **)&arena.base, c.limit));
++  auto &free = c.free[{device, bytes}];
++  // Prefer the same stream or an already completed release. A pending block
++  // from another stream is used only at the cap, avoiding artificial chains
++  // between independent workers while uncarved arena storage is available.
++  size_t choice = free.size();
++  for (size_t i = 0; i < free.size(); ++i) {
++    auto &block = c.blocks.at(free[i]);
++    const auto status = cudaEventQuery(block.ready);
++    if (status != cudaSuccess && status != cudaErrorNotReady)
++      check_cuda_error(status);
++    if (block.last_stream == stream || status == cudaSuccess) {
++      choice = i;
++      break;
++    }
++  }
++  if (choice == free.size() && !free.empty() &&
++      bytes > c.limit - arena.used) choice = 0;
++  if (choice < free.size()) {
++    auto *ptr = free[choice];
++    free[choice] = free.back();
++    free.pop_back();
++    auto &block = c.blocks.at(ptr);
++    // Always wait, even for an equal stream handle: a destroyed stream's
++    // numerical handle can be recycled for a new stream.
++    check_cuda_error(cudaStreamWaitEvent(stream, block.ready, 0));
++    block.available = false;
++    ++c.hits;
++    c.live_bytes += bytes;
++    c.peak_live_bytes = std::max(c.peak_live_bytes, c.live_bytes);
++    return ptr;
++  }
++  if (bytes > c.limit - arena.used)
++    PANIC("TFHE contiguous arena exhausted; increase PRIVATEIMPL_TFHE_ARENA_MB");
++  void *ptr = arena.base + arena.used;
++  arena.used += bytes;
++  ++c.slices;
++  c.live_bytes += bytes;
++  c.peak_live_bytes = std::max(c.peak_live_bytes, c.live_bytes);
++  cudaEvent_t ready;
++  check_cuda_error(cudaEventCreateWithFlags(&ready, cudaEventDisableTiming));
++  c.blocks.emplace(ptr, Block{bytes, device, ready});
++  return ptr;
++}
++
++inline bool release(void *ptr, cudaStream_t stream, uint32_t device,
++                    bool synchronous = false) {
++  auto &c = cache();
++  if (!c.limit || !ptr) return false;
++  std::lock_guard lock(c.mutex);
++  const auto found = c.blocks.find(ptr);
++  if (found == c.blocks.end()) return false;
++  auto &block = found->second;
++  if (block.device != device || block.available)
++    PANIC("Invalid fallback-cache release");
++  // Preserve cuda_drop's synchronous contract. The async path uses the same
++  // last-use ordering contract as the upstream cudaFreeAsync implementation.
++  if (synchronous) check_cuda_error(cudaDeviceSynchronize());
++  check_cuda_error(cudaEventRecord(block.ready, stream));
++  block.last_stream = stream;
++  block.available = true;
++  c.live_bytes -= block.bytes;
++  c.free[{device, block.bytes}].push_back(ptr);
++  ++c.releases;
++  return true;
++}
++} // namespace privateimpl_fallback

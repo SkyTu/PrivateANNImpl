@@ -1,0 +1,29 @@
+-- Finding CCCL components: Thrust;CUB;libcudacxx
+-- cccl_cmake_dir: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/heongpu-install/lib/rapids/cmake/cccl
+-- Finding CCCL components: Thrust;CUB;libcudacxx
+-- cccl_cmake_dir: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/heongpu-install/lib/rapids/cmake/cccl
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found suitable version "3.0.2", minimum required is "1.1.1") found components: Crypto SSL
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+[ 11%] Built target tfhe_rs_backend
+[ 19%] Built target tfhe_topk_once
+[ 23%] Building CXX object CMakeFiles/privateimpl.dir/src/he/bfv_lwe.cpp.o
+[ 26%] Linking CXX static library libprivateimpl.a
+[ 42%] Built target privateimpl
+[ 46%] Linking CUDA device code CMakeFiles/tfhe_topk.dir/cmake_device_link.o
+[ 50%] Linking CUDA device code CMakeFiles/bfv_distance_test.dir/cmake_device_link.o
+[ 53%] Building CXX object CMakeFiles/bfc_tfhe_conversion.dir/test/bfc_tfhe_conversion.cpp.o
+[ 57%] Building CXX object CMakeFiles/component_checks.dir/test/bfc_tfhe_conversion.cpp.o
+[ 61%] Linking CXX executable tfhe_topk
+[ 65%] Linking CXX executable bfv_distance_test
+[ 69%] Built target tfhe_topk
+[ 73%] Built target bfv_distance_test
+[ 80%] Built target component_checks
+[ 84%] Linking CUDA device code CMakeFiles/check.dir/cmake_device_link.o
+[ 88%] Linking CUDA device code CMakeFiles/bfc_tfhe_conversion.dir/cmake_device_link.o
+[ 92%] Linking CXX executable check
+[ 96%] Linking CXX executable bfc_tfhe_conversion
+[100%] Built target check
+[100%] Built target bfc_tfhe_conversion

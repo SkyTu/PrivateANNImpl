@@ -1,0 +1,24 @@
+Running bfv_to_tfhe_conversion
+CUDA device 0: memory pools supported=no
+TIME BFV extraction client/rotation keys = 59.736 ms
+TIME BFV extraction control encryption = 0.294 ms
+SOURCE fresh: N=4096 t=8380417 noise_budget_bits=41
+EXTRACTION fresh slot=0 expected=0 lwe_decoded=0 noise_budget_after=3 slot_isolation=PASS torus_lwe=PASS
+EXTRACTION fresh slot=1 expected=1 lwe_decoded=1 noise_budget_after=4 slot_isolation=PASS torus_lwe=PASS
+EXTRACTION fresh slot=2 expected=255 lwe_decoded=255 noise_budget_after=4 slot_isolation=PASS torus_lwe=PASS
+EXTRACTION fresh slot=2047 expected=238 lwe_decoded=238 noise_budget_after=4 slot_isolation=PASS torus_lwe=PASS
+EXTRACTION fresh slot=2048 expected=19 lwe_decoded=19 noise_budget_after=4 slot_isolation=PASS torus_lwe=PASS
+EXTRACTION fresh slot=4095 expected=238 lwe_decoded=238 noise_budget_after=6 slot_isolation=PASS torus_lwe=PASS
+TIME BFV conversion query encryption = 23.006 ms
+TIME BFV conversion source squared L2 = 11.963 ms
+SOURCE distance128: N=4096 t=8380417 noise_budget_bits=3
+EXTRACTION distance128 slot=0 expected=0 lwe_decoded=6772538 noise_budget_after=2 slot_isolation=FAIL torus_lwe=FAIL
+EXTRACTION distance128 slot=1 expected=1 lwe_decoded=797016 noise_budget_after=3 slot_isolation=FAIL torus_lwe=FAIL
+EXTRACTION distance128 slot=2 expected=8323200 lwe_decoded=3869880 noise_budget_after=1 slot_isolation=FAIL torus_lwe=FAIL
+EXTRACTION distance128 slot=2047 expected=2756224 lwe_decoded=2045780 noise_budget_after=1 slot_isolation=FAIL torus_lwe=FAIL
+EXTRACTION distance128 slot=2048 expected=2738432 lwe_decoded=2317751 noise_budget_after=4 slot_isolation=FAIL torus_lwe=FAIL
+EXTRACTION distance128 slot=4095 expected=2756224 lwe_decoded=941636 noise_budget_after=1 slot_isolation=FAIL torus_lwe=FAIL
+EXTRACTION_SUMMARY fresh=6/6 distance128=0/6
+FAIL: bfv_to_tfhe_conversion - CPU-style slot extraction failed under N=4096/t=8380417; inspect noise budgets and stage results. No invalid LWE is passed to TFHE-rs.
+Completed server evaluations: 25; evaluation_ms=26.093; setup_ms=59.736; encryption_ms=23.300; decryption_ms=0.000
+Component wall time: 362.450 ms

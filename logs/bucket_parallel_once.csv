@@ -1,0 +1,4 @@
+case,buckets,capacity,layers,minimum_gates,requested_workers,workers_used,peak_inflight,evaluation_ms,encryption_ms,verification_ms,correct
+single_300_w4,1,300,9,299,4,4,4,20080.361,1092.878,0.295,1
+wide_100x4_w4,100,4,2,300,4,4,4,20641.921,1409.611,16.602,100
+wide_100x4_w16,100,4,2,300,16,16,16,21818.049,1397.483,16.243,100

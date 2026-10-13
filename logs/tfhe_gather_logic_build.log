@@ -1,0 +1,22 @@
+[ 11%] Building CXX object CMakeFiles/tfhe_rs_backend.dir/src/he/entity/tfhe_keys.cpp.o
+[ 16%] Building CXX object CMakeFiles/tfhe_rs_backend.dir/src/he/tfhe_topk.cpp.o
+[ 16%] Building CXX object CMakeFiles/tfhe_rs_backend.dir/src/he/tfhe_select.cpp.o
+[ 22%] Building CXX object CMakeFiles/tfhe_rs_backend.dir/src/utils/tfhe_crypto.cpp.o
+[ 27%] Building CXX object CMakeFiles/tfhe_rs_backend.dir/src/utils/conversion/tfhe_conversion.cpp.o
+[ 33%] Building CXX object CMakeFiles/tfhe_rs_backend.dir/src/utils/detail/tfhe_rs_api.cpp.o
+[ 38%] Linking CXX static library libtfhe_rs_backend.a
+[ 38%] Built target tfhe_rs_backend
+[ 44%] Building CXX object CMakeFiles/tfhe_topk.dir/test/tfhe_topk.cpp.o
+[ 50%] Building CXX object CMakeFiles/bfc_tfhe_conversion.dir/test/bfc_tfhe_conversion.cpp.o
+[ 55%] Linking CXX executable bfv_distance_test
+[ 61%] Building CXX object CMakeFiles/component_checks.dir/test/bfc_tfhe_conversion.cpp.o
+[ 66%] Built target bfv_distance_test
+[ 72%] Building CXX object CMakeFiles/component_checks.dir/test/tfhe_topk.cpp.o
+[ 77%] Linking CXX executable tfhe_topk
+[ 83%] Linking CXX executable bfc_tfhe_conversion
+[ 88%] Built target component_checks
+[ 94%] Building CXX object CMakeFiles/check.dir/test/check.cpp.o
+[ 94%] Built target tfhe_topk
+[ 94%] Built target bfc_tfhe_conversion
+[100%] Linking CXX executable check
+[100%] Built target check

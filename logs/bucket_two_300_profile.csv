@@ -1,0 +1,2 @@
+case,buckets,capacity,layers,minimum_gates,requested_workers,workers_used,peak_inflight,evaluation_ms,encryption_ms,verification_ms,correct
+two_300_w4,2,300,9,598,4,4,4,41912.754,2181.169,0.650,2

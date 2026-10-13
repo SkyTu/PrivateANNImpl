@@ -1,0 +1,89 @@
+diff --git a/src/lib/rand_aes/aes_rng.cu b/src/lib/rand_aes/aes_rng.cu
+index 1a398d7..d25a0cf 100644
+--- a/src/lib/rand_aes/aes_rng.cu
++++ b/src/lib/rand_aes/aes_rng.cu
+@@ -8,6 +8,34 @@
+ 
+ namespace rngongpu
+ {
++    namespace
++    {
++        __host__ Data64* allocate_random_buffer(size_t bytes,
++                                               cudaStream_t stream)
++        {
++            int device = 0;
++            int memory_pools_supported = 0;
++            RNGONGPU_CUDA_CHECK(cudaGetDevice(&device));
++            RNGONGPU_CUDA_CHECK(cudaDeviceGetAttribute(
++                &memory_pools_supported, cudaDevAttrMemoryPoolsSupported,
++                device));
++
++            // Some vGPU configurations do not support stream-ordered allocation.
++            // Both paths allocate device memory. Callers synchronize the stream
++            // before cudaFree, which is required for the asynchronous path too.
++            Data64* pointer = nullptr;
++            if (memory_pools_supported)
++            {
++                RNGONGPU_CUDA_CHECK(cudaMallocAsync(&pointer, bytes, stream));
++            }
++            else
++            {
++                RNGONGPU_CUDA_CHECK(cudaMalloc(&pointer, bytes));
++            }
++            return pointer;
++        }
++    } // namespace
++
+     __host__ void RNGTraits<Mode::AES>::initialize(
+         ModeFeature<Mode::AES>& features,
+         const std::vector<unsigned char>& entropy_input,
+@@ -618,8 +646,7 @@ namespace rngongpu
+ 
+         Data64* pointer64;
+         Data64 total_byte_count = static_cast<Data64>(size) * sizeof(T);
+-        cudaMallocAsync(&pointer64, total_byte_count, stream);
+-        RNGONGPU_CUDA_CHECK(cudaGetLastError());
++        pointer64 = allocate_random_buffer(total_byte_count, stream);
+         gen_random_bytes(features, pointer64, total_byte_count, entropy_input,
+                          additional_input, stream);
+ 
+@@ -679,8 +706,7 @@ namespace rngongpu
+         Data64 size = 1ULL << log_size;
+         Data64 total_byte_count =
+             static_cast<Data64>(size * repeat_count) * sizeof(T);
+-        cudaMallocAsync(&pointer64, total_byte_count, stream);
+-        RNGONGPU_CUDA_CHECK(cudaGetLastError());
++        pointer64 = allocate_random_buffer(total_byte_count, stream);
+         gen_random_bytes(features, pointer64, total_byte_count, entropy_input,
+                          additional_input, stream);
+ 
+@@ -709,8 +735,7 @@ namespace rngongpu
+         Data64 size = 1ULL << log_size;
+         Data64 total_byte_count =
+             static_cast<Data64>(size * repeat_count) * sizeof(T);
+-        cudaMallocAsync(&pointer64, total_byte_count, stream);
+-        RNGONGPU_CUDA_CHECK(cudaGetLastError());
++        pointer64 = allocate_random_buffer(total_byte_count, stream);
+         gen_random_bytes(features, pointer64, total_byte_count, entropy_input,
+                          additional_input, stream);
+ 
+@@ -784,8 +809,7 @@ namespace rngongpu
+         Data64 size = 1ULL << log_size;
+         Data64 total_byte_count =
+             static_cast<Data64>(size * repeat_count) * sizeof(T);
+-        cudaMallocAsync(&pointer64, total_byte_count, stream);
+-        RNGONGPU_CUDA_CHECK(cudaGetLastError());
++        pointer64 = allocate_random_buffer(total_byte_count, stream);
+         gen_random_bytes(features, pointer64, total_byte_count, entropy_input,
+                          additional_input, stream);
+ 
+@@ -813,8 +837,7 @@ namespace rngongpu
+         Data64 size = 1ULL << log_size;
+         Data64 total_byte_count =
+             static_cast<Data64>(size * repeat_count) * sizeof(T);
+-        cudaMallocAsync(&pointer64, total_byte_count, stream);
+-        RNGONGPU_CUDA_CHECK(cudaGetLastError());
++        pointer64 = allocate_random_buffer(total_byte_count, stream);
+         gen_random_bytes(features, pointer64, total_byte_count, entropy_input,
+                          additional_input, stream);
+ 

@@ -1,0 +1,26 @@
+Running bucket_parallel_once
+CUDA device 0: memory pools supported=no
+SCOPE: one trial per configuration; GPU native gt + paired field CMUX.
+Distances are 128D uint8 L2, stored with IDs as separate FheUint32.
+TIME client_keys = 667.748 ms
+CONFIG single_300_w4 buckets=1 capacity=300 workers=4 layers=9 minimum_gates=299
+TIME server_setup = 91.888 ms
+TIME input_encryption = 1092.878 ms
+TIME single_300_w4 = 20080.361 ms
+TIME verify_winners = 0.295 ms
+VERIFIED single_300_w4 winners=1 workers_used=4 peak_inflight=4
+CONFIG wide_100x4_w4 buckets=100 capacity=4 workers=4 layers=2 minimum_gates=300
+TIME server_setup = 92.257 ms
+TIME input_encryption = 1409.611 ms
+TIME wide_100x4_w4 = 20641.921 ms
+TIME verify_winners = 16.602 ms
+VERIFIED wide_100x4_w4 winners=100 workers_used=4 peak_inflight=4
+CONFIG wide_100x4_w16 buckets=100 capacity=4 workers=16 layers=2 minimum_gates=300
+TIME server_setup = 91.664 ms
+TIME input_encryption = 1397.483 ms
+TIME wide_100x4_w16 = 21818.049 ms
+TIME verify_winners = 16.243 ms
+VERIFIED wide_100x4_w16 winners=100 workers_used=16 peak_inflight=16
+PASS: bucket_parallel_once
+Completed server evaluations: 3; evaluation_ms=62540.331; setup_ms=943.558; encryption_ms=3899.973; decryption_ms=33.140
+Component wall time: 67660.497 ms

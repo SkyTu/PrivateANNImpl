@@ -1,0 +1,92 @@
+diff --git a/cmake/Config.cmake.in b/cmake/Config.cmake.in
+index 1304679..3702f20 100644
+--- a/cmake/Config.cmake.in
++++ b/cmake/Config.cmake.in
+@@ -37,4 +37,20 @@ if(NOT TARGET GMP::GMP)
+     )
+ endif()
+ 
++if(NOT TARGET NTL::NTL)
++    find_path(NTL_INCLUDE_DIR NAMES NTL/RR.h
++        HINTS ${NTL_ROOT} $ENV{NTL_ROOT}
++        PATH_SUFFIXES include usr/include)
++    find_library(NTL_LIBRARY NAMES ntl
++        HINTS ${NTL_ROOT} $ENV{NTL_ROOT}
++        PATH_SUFFIXES lib lib64 usr/lib usr/lib/x86_64-linux-gnu)
++    if(NOT NTL_INCLUDE_DIR OR NOT NTL_LIBRARY)
++        message(FATAL_ERROR "NTL not found. Install libntl-dev or set NTL_ROOT.")
++    endif()
++    add_library(NTL::NTL UNKNOWN IMPORTED)
++    set_target_properties(NTL::NTL PROPERTIES
++        IMPORTED_LOCATION "${NTL_LIBRARY}"
++        INTERFACE_INCLUDE_DIRECTORIES "${NTL_INCLUDE_DIR}")
++endif()
++
+ include("${CMAKE_CURRENT_LIST_DIR}/@HEonGPU_TARGETS_EXPORT_NAME@.cmake")
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 408c950..7704d3d 100755
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -40,6 +40,35 @@ if(NOT TARGET GMP::GMP)
+     )
+ endif()
+ 
++# NTL is required by CKKS cosine approximation even when only BFV is used.
++# Accept a project-local package extracted under NTL_ROOT when system package
++# installation is unavailable.
++if(NOT TARGET NTL::NTL)
++    set(_heongpu_ntl_hints "")
++    if(DEFINED NTL_ROOT)
++        list(APPEND _heongpu_ntl_hints "${NTL_ROOT}")
++    endif()
++    if(DEFINED ENV{NTL_ROOT})
++        list(APPEND _heongpu_ntl_hints "$ENV{NTL_ROOT}")
++    endif()
++    find_path(NTL_INCLUDE_DIR NAMES NTL/RR.h
++        HINTS ${_heongpu_ntl_hints}
++        PATH_SUFFIXES include usr/include
++    )
++    find_library(NTL_LIBRARY NAMES ntl
++        HINTS ${_heongpu_ntl_hints}
++        PATH_SUFFIXES lib lib64 usr/lib usr/lib/x86_64-linux-gnu
++    )
++    if(NOT NTL_INCLUDE_DIR OR NOT NTL_LIBRARY)
++        message(FATAL_ERROR "NTL not found. Install libntl-dev or set NTL_ROOT to a local package extraction.")
++    endif()
++    add_library(NTL::NTL UNKNOWN IMPORTED)
++    set_target_properties(NTL::NTL PROPERTIES
++        IMPORTED_LOCATION "${NTL_LIBRARY}"
++        INTERFACE_INCLUDE_DIRECTORIES "${NTL_INCLUDE_DIR}"
++    )
++endif()
++
+ set(HEONGPU_UTIL_SOURCES
+     lib/util/defaultmodulus.cpp
+     lib/util/memorypool.cu
+@@ -67,7 +96,7 @@ target_link_libraries(heongpu_util
+         rngongpu
+         rmm
+         gmp
+-        ntl
++        NTL::NTL
+ )
+ set_target_properties(heongpu_util PROPERTIES
+     POSITION_INDEPENDENT_CODE ON
+@@ -202,7 +231,7 @@ target_include_directories(heongpu_host_ckks
+         $<BUILD_INTERFACE:${HEONGPU_INCLUDE_ROOT}/kernel>
+ )
+ target_link_libraries(heongpu_host_ckks PUBLIC heongpu_host_core heongpu_kernel heongpu_util
+-    PRIVATE OpenSSL::Crypto)
++    PRIVATE OpenSSL::Crypto NTL::NTL)
+ set_target_properties(heongpu_host_ckks PROPERTIES
+     POSITION_INDEPENDENT_CODE ON
+     CUDA_SEPARABLE_COMPILATION ON
+@@ -279,7 +308,7 @@ target_link_libraries(heongpu PUBLIC
+     fft
+     rngongpu
+     gmp
+-    ntl
++    NTL::NTL
+     rmm
+     CUDA::curand
+     OpenSSL::Crypto

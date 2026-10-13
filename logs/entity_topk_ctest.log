@@ -1,0 +1,116 @@
+[OUTPUT] 
+Internal ctest changing into directory: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+
+[HANDLER_VERBOSE_OUTPUT] 
+UpdateCTestConfiguration  from :/home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/DartConfiguration.tcl
+
+Parse Config file:/home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/DartConfiguration.tcl
+Parse Config file:/home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/DartConfiguration.tcl
+[HANDLER_OUTPUT] 
+Test project /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+
+[HANDLER_VERBOSE_OUTPUT] 
+Constructing a list of tests
+
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+[HANDLER_OUTPUT] 
+    Start 1: selection_circuit
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+1: Test command: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/selection_circuit_test
+
+1: Working Directory: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+1: Test timeout computed to be: 1500
+1: PASS: comparator truth table, Top-k networks including 500/16, ties, padding, fixed topology, and parameter bounds
+[HANDLER_OUTPUT] 
+1/5 Test #1: selection_circuit ................
+   Passed    0.08 sec
+[HANDLER_VERBOSE_OUTPUT] 
+test 2
+
+[HANDLER_OUTPUT] 
+    Start 2: bfv_to_tfhe_conversion_pending
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+2: Test command: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/bfv_to_tfhe_status
+
+2: Working Directory: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+2: Test timeout computed to be: 1500
+2: SKIP: BFV-to-TFHE conversion is not implemented for the pinned HEonGPU backend. BFV slot extraction, cross-scheme key switching, and TFHE bit decomposition must be supplied and validated. No decrypt-and-reencrypt fallback is allowed.
+[HANDLER_OUTPUT] 
+2/5 Test #2: bfv_to_tfhe_conversion_pending ...
+***Skipped   0.00 sec
+[HANDLER_VERBOSE_OUTPUT] 
+test 3
+
+[HANDLER_OUTPUT] 
+    Start 3: bfv_distance_smoke
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+3: Test command: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/bfv_distance_smoke
+
+3: Working Directory: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+3: Test timeout computed to be: 1800
+3: SKIP: no accessible CUDA device: no CUDA-capable device is detected
+[HANDLER_OUTPUT] 
+3/5 Test #3: bfv_distance_smoke ...............
+***Skipped   0.01 sec
+[HANDLER_VERBOSE_OUTPUT] 
+test 4
+
+[HANDLER_OUTPUT] 
+    Start 4: bfv_entity_test
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+4: Test command: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/bfv_entity_test
+
+4: Working Directory: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+4: Test timeout computed to be: 1800
+4: SKIP: no accessible CUDA device: no CUDA-capable device is detected
+[HANDLER_OUTPUT] 
+4/5 Test #4: bfv_entity_test ..................
+***Skipped   0.01 sec
+[HANDLER_VERBOSE_OUTPUT] 
+test 5
+
+[HANDLER_OUTPUT] 
+    Start 5: tfhe_topk_test
+
+[HANDLER_VERBOSE_OUTPUT] 
+
+5: Test command: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl/tfhe_topk_test
+
+5: Working Directory: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
+5: Test timeout computed to be: 1800
+5: SKIP: no accessible CUDA device: no CUDA-capable device is detected
+[HANDLER_OUTPUT] 
+5/5 Test #5: tfhe_topk_test ...................
+***Skipped   0.01 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Label Time Summary:
+conversion    =   0.00 sec*proc (1 test)
+cpu           =   0.08 sec*proc (1 test)
+encrypted     =   0.04 sec*proc (3 tests)
+gpu           =   0.04 sec*proc (3 tests)
+logic         =   0.08 sec*proc (1 test)
+pending       =   0.00 sec*proc (1 test)
+
+Total Test time (real) =   0.12 sec
+
+The following tests did not run:
+	  2 - bfv_to_tfhe_conversion_pending (Skipped)
+	  3 - bfv_distance_smoke (Skipped)
+	  4 - bfv_entity_test (Skipped)
+	  5 - tfhe_topk_test (Skipped)

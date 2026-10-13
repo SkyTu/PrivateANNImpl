@@ -1,0 +1,4 @@
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/openfhe-experiment
+[100%] Built target ckks_tfhe_interop

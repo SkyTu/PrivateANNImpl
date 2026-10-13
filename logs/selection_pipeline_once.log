@@ -1,0 +1,30 @@
+Running selection_pipeline_once
+CUDA device 0: memory pools supported=no
+CONFIG N=100 dimensions=128 element_bits=8 C=10 L=10 u=4 B=16 k=10 score_bits=23 id_bits=20 drop_bits=0 rank_bits=128 data_seed=20261012 bucket_seed=20261013
+Exactly one encrypted pipeline; no intermediate client decryption.
+TIME client_keys = 742.519 ms
+TIME conversion_keys = 7740.786 ms
+TIME server_setup = 98.110 ms
+TIME query_encryption = 25.031 ms
+TIME bfv_distance = 13.422 ms
+GPU_BIT_EXTRACTION round=6/24 batch=110
+GPU_BIT_EXTRACTION round=12/24 batch=110
+GPU_BIT_EXTRACTION round=18/24 batch=110
+GPU_BIT_EXTRACTION round=24/24 batch=110
+CONVERSION_PHASE backend=gpu samples=110 keyswitch_bits_ms=8483.826
+CONVERSION_RADIX samples=110 gpu_workers=4 ms=13713.904
+TIME bfv_to_tfhe = 22327.483 ms
+TIME centroid_topu = 3940.948 ms
+TIME gather = 17194.208 ms
+TIME random_buckets = 0.403 ms
+TIME bucket_minima = 2760.380 ms
+TIME winner_topk = 8295.750 ms
+PARALLEL bucket_workers=4 bucket_peak=4 winner_topk_workers=4 winner_topk_peak=4
+VERIFIED converted=110 gathered=40 buckets=16 capacity=3 winners=16 final_ids=10 recall_at_k=0.800
+FINAL_IDS 588087 580168 627682 635601 603925 596006 564330 619763 366355 334679
+TIME client_verification = 78.633 ms
+SERVER_STAGE_SUM_MS=54532.592 SERVER_PIPELINE_WALL_MS=54532.863
+SCOPE: through encrypted bucket-winner Top-k; no output sanitization or network transport.
+PASS: selection_pipeline_once
+Completed server evaluations: 7; evaluation_ms=54532.592; setup_ms=8581.416; encryption_ms=25.031; decryption_ms=78.633
+Component wall time: 63521.992 ms

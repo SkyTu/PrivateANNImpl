@@ -1,0 +1,2 @@
+candidates,k,dimensions,element_bits,rank_bits,evaluations,comparators,compare_select_gates,min_only_gates,workers_used,peak_inflight_gates,client_keygen_ms,server_gpu_key_setup_ms,client_encryption_ms,topk_evaluation_ms,client_decryption_verification_ms,correct
+100,10,128,8,32,1,729,633,96,4,4,658.556482,102.382651,182.635315,40379.967677,0.992718,10

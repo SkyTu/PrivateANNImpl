@@ -1,0 +1,4 @@
+[ 33%] Building CXX object CMakeFiles/bfv_distance_smoke.dir/test/bfv_distance_smoke.cpp.o
+[ 66%] Linking CUDA device code CMakeFiles/bfv_distance_smoke.dir/cmake_device_link.o
+[100%] Linking CXX executable bfv_distance_smoke
+[100%] Built target bfv_distance_smoke

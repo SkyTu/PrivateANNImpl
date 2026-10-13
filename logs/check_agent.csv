@@ -1,0 +1,9 @@
+component,status,evaluation_calls,evaluation_ms,setup_ms,encryption_ms,decryption_ms,wall_ms,distance_records,distance_dimensions,distance_batches,distance_evaluation_ms,distance_records_per_second
+network_and_parameters,PASS,0,,0.000000,0.000000,0.000000,6.865976,,,,,
+tfhe_c_api_abi,PASS,0,,0.000000,0.000000,0.000000,0.000055,,,,,
+tfhe_gpu_library,PASS,0,,0.000000,0.000000,0.000000,0.494627,,,,,
+bfv_distance,INCOMPLETE,0,,0.000000,0.000000,0.000000,10.467184,,,,,
+bfv_to_tfhe_conversion,INCOMPLETE,0,,0.000000,0.000000,0.000000,0.003515,,,,,
+tfhe_topk,INCOMPLETE,0,,0.000000,0.000000,0.000000,0.004558,,,,,
+TOTAL_COMPONENTS,PARTIAL_PIPELINE,0,,0.000000,0.000000,0.000000,17.924427,,,,,
+FULL_PIPELINE,UNAVAILABLE,,,,,,,,,,,

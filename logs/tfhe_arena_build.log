@@ -1,0 +1,5 @@
+   Compiling tfhe-cuda-backend v0.13.2 (/home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/tfhe-rs/backends/tfhe-cuda-backend)
+   Compiling tfhe v1.5.4 (/home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/tfhe-rs/tfhe)
+    Finished `release` profile [optimized] target(s) in 3m 49s
+Installed TFHE-rs GPU C API at /home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/tfhe-rs-install
+Next: ./build/privateimpl/check from the PrivateImpl directory.

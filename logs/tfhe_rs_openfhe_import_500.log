@@ -1,0 +1,16 @@
+CASE: full23
+TFHE_GPU_PARAMS: small_lwe_dimension=920 input_lwe_dimension=2048 message_modulus=4 carry_modulus=4 native_modulus=true FheUint128_blocks=64
+OPENFHE_INPUT: dimension=1305 q=33554432 p=8388608 ternary_key_has_minus_one=true
+ENCODING: imported_delta=2199023255552 GPU_shortint_delta=576460752303423488 (includes padding and carry space)
+RAW_IMPORT: phase_matches=500/500 original_distance_matches=65/500 import_ms=0.118734 client_verify_ms=0.304285
+GPU_CONFORMANCE: raw_lwe_accepted=0/500 FheUint128_accepted=0/500
+BLOCKED: raw LWE import works; existing TFHE-rs GPU integer input is incompatible. GPU min/max was not executed.
+probe_exit_code=2
+CASE: modular_control
+TFHE_GPU_PARAMS: small_lwe_dimension=920 input_lwe_dimension=2048 message_modulus=4 carry_modulus=4 native_modulus=true FheUint128_blocks=64
+OPENFHE_INPUT: dimension=1305 q=33554432 p=131072 ternary_key_has_minus_one=true
+ENCODING: imported_delta=140737488355328 GPU_shortint_delta=576460752303423488 (includes padding and carry space)
+RAW_IMPORT: phase_matches=500/500 original_distance_matches=3/500 import_ms=0.109023 client_verify_ms=0.303787
+GPU_CONFORMANCE: raw_lwe_accepted=0/500 FheUint128_accepted=0/500
+BLOCKED: raw LWE import works; existing TFHE-rs GPU integer input is incompatible. GPU min/max was not executed.
+probe_exit_code=2

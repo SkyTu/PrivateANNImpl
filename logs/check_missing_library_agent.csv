@@ -1,0 +1,9 @@
+component,status,evaluation_calls,evaluation_ms,setup_ms,encryption_ms,decryption_ms,wall_ms
+network_and_parameters,PASS,0,,0.000000,0.000000,0.000000,6.872591
+tfhe_c_api_abi,PASS,0,,0.000000,0.000000,0.000000,0.000035
+tfhe_gpu_library,FAIL,0,,0.000000,0.000000,0.000000,0.036148
+bfv_distance,INCOMPLETE,0,,0.000000,0.000000,0.000000,11.561904
+bfv_to_tfhe_conversion,INCOMPLETE,0,,0.000000,0.000000,0.000000,0.003097
+tfhe_topk,FAIL,0,,0.000000,0.000000,0.000000,0.018607
+TOTAL_COMPONENTS,PARTIAL_PIPELINE,0,,0.000000,0.000000,0.000000,18.574207
+FULL_PIPELINE,UNAVAILABLE,,,,,,

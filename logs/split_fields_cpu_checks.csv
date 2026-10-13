@@ -1,0 +1,4 @@
+component,status,evaluation_calls,evaluation_ms,setup_ms,encryption_ms,decryption_ms,wall_ms,distance_records,distance_dimensions,distance_batches,distance_evaluation_ms,distance_records_per_second,conversion_records,conversion_drop_bits,conversion_source_ms,conversion_evaluation_ms,converted_top3_of_11_ms
+network_and_parameters,PASS,0,,0.000000,0.000000,0.000000,3.624616,,,,,,,,,,
+TOTAL_COMPONENTS,PARTIAL_PIPELINE,0,,0.000000,0.000000,0.000000,3.707208,,,,,,,,,,
+FULL_ANN_PIPELINE,UNAVAILABLE,,,,,,,,,,,,,,,,

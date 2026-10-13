@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "gpu": "NVIDIA L40S-48Q",
+  "runs": 1,
+  "queries": 1,
+  "records": 1000000,
+  "dimensions": 128,
+  "coordinate_bits": 8,
+  "operation": "BFV ciphertext-plaintext squared L2",
+  "formula": "Enc(||q||^2) - 2*sum_d Enc(q[d])*x[d] + ||x||^2",
+  "ring_degree": 4096,
+  "plaintext_modulus": 8380417,
+  "batches": 245,
+  "last_batch_real_records": 576,
+  "multiply_plain_calls_per_batch": 129,
+  "multiply_plain_calls_total": 31605,
+  "distance_evaluation_ms": 3085.67,
+  "records_per_second": 324078.709,
+  "million_query_encryption_ms": 23.482,
+  "component_wall_ms_including_small_regressions": 4465.721,
+  "all_real_records_verified": true,
+  "timing_includes": [
+    "input validation",
+    "plaintext preparation and encoding",
+    "transfers",
+    "GPU multiply/add operations",
+    "GPU synchronization"
+  ],
+  "timing_excludes": [
+    "key generation and setup",
+    "query encryption",
+    "dataset generation",
+    "client decryption and reference checks",
+    "small regression cases",
+    "TFHE conversion and selection"
+  ],
+  "log": "logs/bfv_l2_1m_once_20261012.log"
+}

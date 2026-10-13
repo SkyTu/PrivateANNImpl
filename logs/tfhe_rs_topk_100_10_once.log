@@ -1,0 +1,21 @@
+GPU: NVIDIA L40S-48Q
+100 candidates, k=10, 128D uint8 squared L2, FheUint128 ranks
+Exactly one Top-k evaluation; no warmup or repeated trials.
+Network layers=28, comparators=1483, native min/max calls=2966
+client_keygen_ms=658.488295
+server_gpu_key_setup_ms=92.502422
+client_encryption_ms=727.733540
+Starting the single Top-k evaluation...
+topk_evaluation_ms=332928.619174
+rank=0 id=0 distance=0
+rank=1 id=28 distance=1982596
+rank=2 id=49 distance=2187758
+rank=3 id=9 distance=2276747
+rank=4 id=48 distance=2297502
+rank=5 id=36 distance=2308993
+rank=6 id=26 distance=2411282
+rank=7 id=85 distance=2444919
+rank=8 id=32 distance=2445099
+rank=9 id=61 distance=2477318
+client_decryption_verification_ms=4.033075
+PASS: 10/10 exact scores and IDs; report=logs/tfhe_rs_topk_100_10_once.csv

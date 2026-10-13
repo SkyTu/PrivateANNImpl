@@ -1,0 +1,47 @@
+Running bfv_to_tfhe_conversion
+CUDA device 0: memory pools supported=no
+TIME BFV extraction client keys = 727.442 ms
+TIME BFV-to-TFHE evaluation key generation = 7617.290 ms
+TIME BFV crypto utilities setup = 0.769 ms
+TIME BFV/TFHE server setup = 89.126 ms
+TIME BFV conversion query encryption = 22.061 ms
+TIME BFV conversion source squared L2 = 11.420 ms
+SOURCE coefficient distance: N=4096 t=8380417 correct=4096/4096 library_noise_budget_bits=23
+TIME BFV source verification = 0.186 ms
+TIME BFV coefficients to torus LWE diagnostic = 7.039 ms
+BOUNDARY coefficient=0 expected=0 actual=0 high16=0
+BOUNDARY coefficient=1 expected=1 actual=1 high16=0
+BOUNDARY coefficient=2 expected=8323200 actual=8323200 high16=65025
+BOUNDARY coefficient=3 expected=127 actual=127 high16=0
+BOUNDARY coefficient=4 expected=128 actual=128 high16=1
+BOUNDARY coefficient=5 expected=129 actual=129 high16=1
+BOUNDARY coefficient=6 expected=65535 actual=65535 high16=511
+BOUNDARY coefficient=7 expected=65536 actual=65536 high16=512
+BOUNDARY coefficient=8 expected=255 actual=255 high16=1
+BOUNDARY coefficient=9 expected=256 actual=256 high16=2
+BOUNDARY coefficient=10 expected=257 actual=257 high16=2
+EXTRACTION_SUMMARY exact=11/11 high16=11/11 no_rotation_key=true no_relin_key=true
+TIME LWE verification decryptions = 1.792 ms
+CONVERSION count=11 drop_bits=0 score_bits=23 id_bits=9
+GPU_BIT_EXTRACTION round=6/24 batch=11
+GPU_BIT_EXTRACTION round=12/24 batch=11
+GPU_BIT_EXTRACTION round=18/24 batch=11
+GPU_BIT_EXTRACTION round=24/24 batch=11
+CONVERSION_PHASE backend=gpu samples=11 keyswitch_bits_ms=1984.712
+CONVERSION_RADIX samples=11 gpu_workers=4 ms=728.172
+TIME Full BFV-to-native-TFHE conversion = 2723.127 ms
+TIME Native TFHE conversion verification = 0.463 ms
+PASS: native TFHE-rs conversion 11/11 distance_bits=32 id_bits=32
+TIME Converted native GPU Top-3 of 11 = 2481.285 ms
+TIME Converted Top-k verification = 0.684 ms
+PASS: converted ciphertexts consumed by native GPU Top-k
+TIME Converted centroid Top-2 = 480.570 ms
+TIME Converted TFHE cluster gather = 525.019 ms
+TIME Converted gathered candidate Top-3 = 450.100 ms
+CONVERTED_ROUTING C=3 u=2 L=2 candidates=4 topu_gather_topk_ms=1455.690
+TIME Converted cluster routing verification = 1.645 ms
+PASS: BFV distances -> TFHE conversion -> centroid Top-u -> secret gather -> candidate Top-k
+PASS: bfv_to_tfhe_conversion
+Completed server evaluations: 7; evaluation_ms=6678.561; setup_ms=8434.627; encryption_ms=22.061; decryption_ms=4.770
+BFV-to-TFHE workload: records=11; drop_bits=0; source_distance_ms=11.420; conversion_ms=2723.127; converted_top3_of_11_ms=2481.285; fixture_chain_ms=5215.832
+Component wall time: 15440.517 ms

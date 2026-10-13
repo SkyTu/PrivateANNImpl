@@ -1,0 +1,121 @@
+Running tfhe_topk
+CUDA device 0: memory pools supported=no
+Generating BFV/TFHE-rs client keys...
+TIME BFV/TFHE client setup/key generation = 717.089 ms
+Initializing TFHE-rs CUDA server key...
+TIME TFHE CUDA server setup = 90.914 ms
+TIME TFHE fixture encryption = 9.098 ms
+Evaluating TFHE Top-1 (n=5)...
+TIME TFHE Top-1 (n=5) = 249.742 ms
+TIME TFHE verification decryption = 0.213 ms
+PASS: TFHE Top-1 (n=5)
+Evaluating TFHE Top-3 (n=5)...
+TIME TFHE Top-3 (n=5) = 900.450 ms
+TIME TFHE verification decryption = 0.326 ms
+PASS: TFHE Top-3 (n=5)
+Evaluating TFHE Top-5 (n=5)...
+TIME TFHE Top-5 (n=5) = 1065.572 ms
+TIME TFHE verification decryption = 0.523 ms
+PASS: TFHE Top-5 (n=5)
+Evaluating TFHE singleton...
+TIME TFHE singleton = 0.002 ms
+TIME TFHE verification decryption = 0.028 ms
+PASS: TFHE singleton
+TIME TFHE fixture encryption = 30.924 ms
+Evaluating TFHE Top-u (n=17,u=16)...
+TIME TFHE Top-u (n=17,u=16) = 9118.700 ms
+TIME TFHE verification decryption = 1.410 ms
+PASS: TFHE Top-u (n=17,u=16)
+TIME TFHE fixture encryption = 21.745 ms
+Evaluating TFHE uint32 boundaries...
+TIME TFHE uint32 boundaries = 720.637 ms
+TIME TFHE verification decryption = 1.367 ms
+PASS: TFHE uint32 boundaries
+TIME TFHE fixture encryption = 8.715 ms
+Evaluating TFHE compact rank with bit-31 padding...
+TIME TFHE compact rank with bit-31 padding = 1018.511 ms
+TIME TFHE verification decryption = 0.467 ms
+PASS: TFHE compact rank with bit-31 padding
+TIME TFHE verification decryption = 0.166 ms
+TIME TFHE verification decryption = 0.190 ms
+PASS: ties, ID ordering, invalid padding, invalid k, and unchanged inputs
+TIME TFHE fixture encryption = 3.498 ms
+TIME TFHE fixture encryption = 3.567 ms
+TIME TFHE fixture encryption = 3.667 ms
+TIME TFHE fixture encryption = 5.500 ms
+TIME TFHE fixture encryption = 5.496 ms
+TIME Gather centroid Top-u = 309.602 ms
+TIME TFHE gather compact A = 287.049 ms
+TIME Gathered candidate Top-k = 326.722 ms
+TIME TFHE verification decryption = 0.218 ms
+TIME TFHE verification decryption = 0.339 ms
+TIME TFHE verification decryption = 0.253 ms
+TIME TFHE verification decryption = 0.069 ms
+TIME TFHE verification decryption = 0.071 ms
+TIME TFHE verification decryption = 0.066 ms
+PASS: TFHE gather compact A C=3 u=2 L=2 output=4 logical_accesses=12
+TIME Gather centroid Top-u = 305.664 ms
+TIME TFHE gather compact B = 296.150 ms
+TIME Gathered candidate Top-k = 306.145 ms
+TIME TFHE verification decryption = 0.227 ms
+TIME TFHE verification decryption = 0.338 ms
+TIME TFHE verification decryption = 0.250 ms
+TIME TFHE verification decryption = 0.069 ms
+TIME TFHE verification decryption = 0.070 ms
+TIME TFHE verification decryption = 0.067 ms
+PASS: TFHE gather compact B C=3 u=2 L=2 output=4 logical_accesses=12
+TIME Gather centroid Top-u = 131.821 ms
+TIME TFHE gather u=1 = 218.320 ms
+TIME Gathered candidate Top-k = 87.278 ms
+TIME TFHE verification decryption = 0.107 ms
+TIME TFHE verification decryption = 0.173 ms
+TIME TFHE verification decryption = 0.169 ms
+TIME TFHE verification decryption = 0.049 ms
+TIME TFHE verification decryption = 0.046 ms
+TIME TFHE verification decryption = 0.051 ms
+PASS: TFHE gather u=1 C=3 u=1 L=2 output=2 logical_accesses=6
+TIME Gather centroid Top-u = 351.807 ms
+TIME TFHE gather u=C = 433.671 ms
+TIME Gathered candidate Top-k = 961.116 ms
+TIME TFHE verification decryption = 0.296 ms
+TIME TFHE verification decryption = 0.504 ms
+TIME TFHE verification decryption = 0.252 ms
+TIME TFHE verification decryption = 0.062 ms
+TIME TFHE verification decryption = 0.063 ms
+TIME TFHE verification decryption = 0.058 ms
+PASS: TFHE gather u=C C=3 u=3 L=2 output=6 logical_accesses=18
+TIME TFHE fixture encryption = 21.748 ms
+TIME Gather centroid Top-u = 225.599 ms
+TIME TFHE gather wide centroid = 259.160 ms
+TIME Gathered candidate Top-k = 87.287 ms
+TIME TFHE verification decryption = 0.628 ms
+TIME TFHE verification decryption = 0.189 ms
+TIME TFHE verification decryption = 0.166 ms
+TIME TFHE verification decryption = 0.055 ms
+TIME TFHE verification decryption = 0.047 ms
+TIME TFHE verification decryption = 0.051 ms
+PASS: TFHE gather wide centroid C=3 u=1 L=2 output=2 logical_accesses=6
+TIME TFHE fixture encryption = 13.926 ms
+TIME TFHE fixture encryption = 14.596 ms
+TIME TFHE fixture encryption = 14.607 ms
+TIME Gather centroid Top-u = 132.191 ms
+TIME TFHE gather wide records = 341.748 ms
+TIME Gathered candidate Top-k = 153.895 ms
+TIME TFHE verification decryption = 0.112 ms
+TIME TFHE verification decryption = 1.021 ms
+TIME TFHE verification decryption = 0.685 ms
+TIME TFHE verification decryption = 0.253 ms
+TIME TFHE verification decryption = 0.256 ms
+TIME TFHE verification decryption = 0.254 ms
+PASS: TFHE gather wide records C=3 u=1 L=2 output=2 logical_accesses=6
+TIME TFHE fixture encryption = 1.758 ms
+TIME TFHE gather invalid selector = 257.289 ms
+TIME Invalid gather verification = 0.201 ms
+TIME TFHE gather invalid selector = 218.047 ms
+TIME Invalid gather verification = 0.202 ms
+TIME TFHE verification decryption = 0.120 ms
+TIME TFHE verification decryption = 0.103 ms
+PASS: encrypted Top-u -> gather -> Top-k, ties, both widths, invalid selectors, fixed output size, unchanged inputs and identical logical traces for different choices
+PASS: tfhe_topk
+Completed server evaluations: 27; evaluation_ms=18764.173; setup_ms=808.003; encryption_ms=158.843; decryption_ms=12.897
+Component wall time: 20071.580 ms

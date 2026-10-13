@@ -1,0 +1,14 @@
+Running network_and_parameters
+100/10 grouped schedule: 633 compare/select, 96 min-only gates
+PASS: grouped network scheduling, 100/10, 500/16, rank ordering, ties, padding, uint32 boundaries, and parameter bounds
+PASS: network_and_parameters
+Component wall time: 3.28582 ms
+
+Total server evaluation time (completed component calls): N/A (no GPU evaluation completed)
+Total setup/key generation: 0 ms
+Total encryption: 0 ms
+Total decryption: 0 ms
+Total check wall time: 3.46635 ms
+Full ANN evaluation time: N/A (secret routing and output sanitization missing)
+CSV report: "/home/student.unimelb.edu.au/xinyutu/PrivateImpl/logs/refactor_cpu_checks.csv"
+PASS: CPU logic checks (GPU components were not requested).

@@ -1,0 +1,39 @@
+# Generated builds, datasets, machine-local configuration and credentials.
+/build/
+/dataset/*
+!/dataset/README.md
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+core
+core.*
+__pycache__/
+*.py[cod]
+.venv/
+.vscode/
+.idea/
+
+# Keep dependency recipes and patches, not downloaded source trees or binaries.
+/third_party/*
+!/third_party/README.md
+!/third_party/*.sh
+!/third_party/*.py
+!/third_party/versions.json
+!/third_party/patches/
+!/third_party/locks/
+
+# Retain small textual measurements; omit bulky profiler traces and dumps.
+/logs/*
+!/logs/README.md
+!/logs/*.csv
+!/logs/*.json
+!/logs/*.log
+!/logs/*.time
+/logs/*_runtime.csv
+/logs/*_all_kernels.csv
+*.nsys-rep
+*.sqlite
+*.sqlite-*
+*.qdstrm

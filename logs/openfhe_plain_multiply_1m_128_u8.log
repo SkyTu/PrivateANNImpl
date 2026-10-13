@@ -1,0 +1,23 @@
+OpenFHE 1.6.1; backend=CPU; omp_threads=8; operation=CKKS_ciphertext_times_plaintext
+vectors=1000000; dimensions=128; input_bits=8; output_range=0..65025; scalar_products=128000000; ring_dimension=16384; slots=8192; vectors_per_batch=64; batches=15625; security=HEStd_128_classic; depth=1; scaling=FLEXIBLEAUTO; first_modulus_bits=60; scaling_modulus_bits=40
+Verified vectors=65536/1000000; batches=1024/15625; multiplication_ms=117.388
+Verified vectors=131072/1000000; batches=2048/15625; multiplication_ms=234.472
+Verified vectors=196608/1000000; batches=3072/15625; multiplication_ms=351.849
+Verified vectors=262144/1000000; batches=4096/15625; multiplication_ms=468.649
+Verified vectors=327680/1000000; batches=5120/15625; multiplication_ms=585.544
+Verified vectors=393216/1000000; batches=6144/15625; multiplication_ms=702.584
+Verified vectors=458752/1000000; batches=7168/15625; multiplication_ms=819.304
+Verified vectors=524288/1000000; batches=8192/15625; multiplication_ms=936.296
+Verified vectors=589824/1000000; batches=9216/15625; multiplication_ms=1053.34
+Verified vectors=655360/1000000; batches=10240/15625; multiplication_ms=1169.97
+Verified vectors=720896/1000000; batches=11264/15625; multiplication_ms=1287.19
+Verified vectors=786432/1000000; batches=12288/15625; multiplication_ms=1404.07
+Verified vectors=851968/1000000; batches=13312/15625; multiplication_ms=1521.17
+Verified vectors=917504/1000000; batches=14336/15625; multiplication_ms=1637.97
+Verified vectors=983040/1000000; batches=15360/15625; multiplication_ms=1755.19
+Verified vectors=1000000/1000000; batches=15625/15625; multiplication_ms=1785.45
+PASS: all 128000000 rounded uint8 products match full integer results; query unchanged
+setup_ms=13.992874; query_encoding_encryption_ms=4.448235
+record_encoding_ms=8135.105772; multiplication_ms=1785.454973; server_encoding_plus_multiplication_ms=9920.560745
+decryption_ms=46461.451712; verification_ms=521.148513; wall_ms=60405.516696; max_absolute_error=0.000063
+CSV report: "/home/student.unimelb.edu.au/xinyutu/PrivateImpl/logs/openfhe_plain_multiply_1m_128_u8.csv"

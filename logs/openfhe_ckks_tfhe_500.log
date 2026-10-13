@@ -1,0 +1,7 @@
+count=500 dimensions=128 CKKS_ring=16384 slots=512 LWE_dimension=1305 q=33554432 recommended_p=131072 requested_p=8388608
+distance_ms=0.109881 setup_keygen_ms=212.908782
+full23: precompute_ms=150.489952 switch_ms=174.000373 verify_ms=3.277881 exact_matches=65/500 modular_matches=65/500 max_circular_error=10
+modular_control: precompute_ms=104.113251 switch_ms=169.169954 verify_ms=3.264531 exact_matches=3/500 modular_matches=500/500 max_circular_error=0
+LARGE_MODULUS_PROBE: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/openfhe/src/binfhe/lib/binfhecontext.cpp:l.75:GenerateBinFHEContext(): logQ > 29 is not supported
+openfhe_wall_ms=882.769813
+FULL_DISTANCE_PRECISION_FAIL

@@ -1,0 +1,25 @@
+GPU: NVIDIA L40S-48Q
+100 candidates, k=10, 128D uint8 squared L2, FheUint32 ranks
+Encoding: 23 score bits + 7 ID bits + 1 padding bit, no truncation
+Exactly one Top-k evaluation; no warmup or repeated trials.
+Grouped network: padded=112, layers=25, compare/select gates=633, min-only gates=96
+Native calls: gt=633, if_then_else=1266, min=96
+client_keygen_ms=656.249462
+server_gpu_key_setup_ms=103.126108
+Requested layer workers=4
+client_encryption_ms=183.004083
+Starting the single Top-k evaluation...
+topk_evaluation_ms=41865.028190
+Layer workers used=4, peak in-flight gates=4
+rank=0 id=0 distance=0
+rank=1 id=28 distance=1982596
+rank=2 id=49 distance=2187758
+rank=3 id=9 distance=2276747
+rank=4 id=48 distance=2297502
+rank=5 id=36 distance=2308993
+rank=6 id=26 distance=2411282
+rank=7 id=85 distance=2444919
+rank=8 id=32 distance=2445099
+rank=9 id=61 distance=2477318
+client_decryption_verification_ms=2.432713
+PASS: 10/10 exact scores and IDs; report=logs/tfhe_rs_topk_100_10_u32_parallel_once.csv

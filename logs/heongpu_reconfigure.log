@@ -1,0 +1,44 @@
+-- Build HEonGPU version: 1.1.4
+-- Build type: Release
+-- C++ Standard is: 17
+-- CUDA Standard: 17
+-- Found Thrust: /usr/local/cuda/targets/x86_64-linux/include
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found suitable version "3.0.2", minimum required is "1.1.1") found components: Crypto SSL
+-- CUDA Version: 12.8.93
+-- OpenMP Version: 4.5
+-- ZLIB Version: 1.2.11
+-- OpenSSL Version: 3.0.2
+-- Setting CMAKE_CUDA_ARCHITECTURES to 89 for HEonGPU
+-- Thirdparty build completed successfully
+-- RMM: RMM_LOGGING_LEVEL = 'INFO'
+-- CPM: Using local package rapids_logger@0.1.0
+-- CPM: Adding package CCCL@3.0.3 (8c04b6539859932f5602e86d38314e4d87f96420)
+-- Finding CCCL components: Thrust;CUB;libcudacxx
+-- cccl_cmake_dir: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/heongpu/_deps/cccl-src/lib/cmake/cccl
+-- Found Thrust: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/heongpu/_deps/cccl-src/lib/cmake/thrust/thrust-config.cmake (found suitable exact version "3.0.3.0")
+-- Found Thrust: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/heongpu/_deps/cccl-src/lib/cmake/thrust/thrust-config.cmake (found version "3.0.3.0")
+-- CPM: Using local package nvtx3@3.2.0
+-- Build GPUFFT version: 1.0
+-- Build type: Release
+-- Setting CMAKE_CUDA_ARCHITECTURES to 89 for GPUFFT
+-- GPUFFT_BUILD_EXAMPLES: OFF
+-- GPUFFT_BUILD_BENCHMARKS: OFF
+-- Build GPUNTT version: 1.0
+-- Build type: Release
+-- Setting CMAKE_CUDA_ARCHITECTURES to 89 for GPUNTT
+-- GPUNTT_BUILD_EXAMPLES: OFF
+-- GPUNTT_BUILD_BENCHMARKS: OFF
+-- Build RNGonGPU version: 1.0
+-- Build type: Release
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")
+-- Setting CMAKE_CUDA_ARCHITECTURES to 89 for RNGonGPU
+-- Using in-tree GPUNTT target (GPUNTT::ntt)
+-- RNGonGPU_BUILD_EXAMPLES: OFF
+-- RNGonGPU_BUILD_TESTS: OFF
+-- RNGonGPU_BUILD_BENCHMARKS: OFF
+-- HEonGPU_BUILD_TESTS: ON
+-- HEonGPU_BUILD_EXAMPLES: OFF
+-- HEonGPU_BUILD_BENCHMARKS: OFF
+-- Configuring done (0.5s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/heongpu

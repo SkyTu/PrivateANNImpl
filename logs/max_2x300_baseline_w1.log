@@ -1,0 +1,12 @@
+Running bucket_max_once
+CUDA device 0: memory pools supported=no
+CONFIG buckets=2 capacity=300 workers=1 arena_mb=0 operation=maximum_with_id
+TIME client_keys = 687.654 ms
+TIME server_setup = 96.935 ms
+TIME input_encryption = 2182.107 ms
+TIME bucket_maxima = 52771.587 ms
+TIME verify_all_winners = 0.392 ms
+VERIFIED maxima=2 workers_used=1 peak_host_calls=1
+PASS: bucket_max_once
+Completed server evaluations: 1; evaluation_ms=52771.587; setup_ms=784.589; encryption_ms=2182.107; decryption_ms=0.392
+Component wall time: 56000.163 ms

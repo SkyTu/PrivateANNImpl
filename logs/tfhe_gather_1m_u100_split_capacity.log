@@ -1,0 +1,15 @@
+{
+  "status": "CAPACITY_BLOCKED",
+  "full_gather_executed": false,
+  "gather_evaluation_ms": null,
+  "records": 1000000, "clusters": 500, "rows_per_cluster": 2000, "selected_clusters": 100,
+  "candidates": 200000, "buckets": 10000, "bucket_capacity": 20, "k": 10,
+  "score_bits": 23, "id_bits": 20, "record_type": "FheUint32 distance + FheUint32 ID",
+  "measured_radix_blocks_per_field": 16, "measured_lwe_words_per_block": 2049,
+  "measured_payload_bytes_per_record": 524544, "measured_serialized_bytes_per_record": 526896,
+  "input_payload_bytes_lower_bound": 524544000000, "output_payload_bytes_lower_bound": 104908800000,
+  "input_plus_gather_payload_bytes_lower_bound": 629452800000, "centroid_payload_bytes_lower_bound": 262272000,
+  "host_available_bytes": 242873057280, "gpu_free_bytes": 45352091648, "gpu_total_bytes": 51223592960,
+  "equality_calls_required": 50000, "field_cmux_calls_required": 200000000,
+  "reason": "Current gather holds every independent input ciphertext in memory; lower bound excludes keys, metadata and workspaces."
+}

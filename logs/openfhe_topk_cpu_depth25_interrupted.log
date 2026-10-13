@@ -1,0 +1,4 @@
+INPUT: count=100 k=10 dimensions=128 coordinate_bits=8 padded_slots=128 min_distance_gap=150 top10_boundary_gap=29288
+SETUP: CKKS_ring=131072 depth=25 FHEW_dimension=1305; generating switching and bootstrapping keys...
+setup_keygen_ms=8900.904299
+native_max_ms=108304.384511

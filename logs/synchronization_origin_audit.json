@@ -1,0 +1,22 @@
+{
+  "fixture": "2 buckets x 8 valid records; 14 maximum-with-ID nodes",
+  "counts": {
+    "max_original_sync_audit": {
+      "cudaDeviceSynchronize_v3020": 2,
+      "cudaStreamSynchronize_v3020": 1196,
+      "cudaMalloc_v3020": 2708,
+      "cudaFree_v3020": 2692
+    },
+    "max_arena_final_trace": {
+      "cudaDeviceSynchronize_v3020": 104,
+      "cudaStreamSynchronize_v3020": 1196,
+      "cudaMalloc_v3020": 0,
+      "cudaFree_v3020": 0
+    }
+  },
+  "attribution": {
+    "extra_device_syncs": "local contiguous-arena synchronous release branch",
+    "two_boundary_device_syncs": "project evaluation timer",
+    "stream_syncs": "unmodified upstream TFHE-rs CUDA/Rust paths"
+  }
+}

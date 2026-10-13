@@ -1,0 +1,2 @@
+CUDA device 0: memory pools supported=no
+PASS: reused entities, three-dimensional BFV L2, negative differences, all slots, and unchanged query

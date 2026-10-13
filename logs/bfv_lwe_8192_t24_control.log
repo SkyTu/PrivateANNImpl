@@ -1,0 +1,24 @@
+Running bfv_to_tfhe_conversion_wide_control
+CUDA device 0: memory pools supported=no
+TIME BFV extraction client/rotation keys = 64.533 ms
+TIME BFV extraction control encryption = 0.306 ms
+SOURCE fresh: N=8192 t=8404993 noise_budget_bits=140
+EXTRACTION fresh slot=0 expected=0 lwe_decoded=0 noise_budget_after=103 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION fresh slot=1 expected=1 lwe_decoded=1 noise_budget_after=103 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION fresh slot=2 expected=255 lwe_decoded=255 noise_budget_after=104 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION fresh slot=4095 expected=238 lwe_decoded=238 noise_budget_after=101 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION fresh slot=4096 expected=19 lwe_decoded=19 noise_budget_after=104 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION fresh slot=8191 expected=238 lwe_decoded=238 noise_budget_after=101 slot_isolation=PASS torus_lwe=PASS high16=PASS
+TIME BFV conversion query encryption = 23.735 ms
+TIME BFV conversion source squared L2 = 12.264 ms
+SOURCE distance128: N=8192 t=8404993 noise_budget_bits=102
+EXTRACTION distance128 slot=0 expected=0 lwe_decoded=0 noise_budget_after=62 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION distance128 slot=1 expected=1 lwe_decoded=1 noise_budget_after=62 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION distance128 slot=2 expected=8323200 lwe_decoded=8323200 noise_budget_after=65 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION distance128 slot=4095 expected=2756224 lwe_decoded=2756224 noise_budget_after=62 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION distance128 slot=4096 expected=2738432 lwe_decoded=2738432 noise_budget_after=63 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION distance128 slot=8191 expected=2756224 lwe_decoded=2756224 noise_budget_after=65 slot_isolation=PASS torus_lwe=PASS high16=PASS
+EXTRACTION_SUMMARY fresh=6/6 distance128=6/6 high16=12/12
+INCOMPLETE: bfv_to_tfhe_conversion_wide_control - BFV slot-to-LWE extraction passed; TFHE-rs key switching/radix conversion is not yet implemented. Full conversion time remains unavailable.
+Completed server evaluations: 25; evaluation_ms=43.285; setup_ms=64.533; encryption_ms=24.041; decryption_ms=0.000
+Component wall time: 383.438 ms

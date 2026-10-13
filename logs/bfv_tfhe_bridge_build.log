@@ -1,0 +1,10 @@
+warning: unused import: `tfhe::prelude`
+  --> /home/student.unimelb.edu.au/xinyutu/PrivateImpl/src/he/rust_bridge/bfv_tfhe.rs:11:5
+   |
+11 | use tfhe::prelude::*;
+   |     ^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: 1 warning emitted
+

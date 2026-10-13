@@ -1,0 +1,26 @@
+INPUT: count=100 k=10 dimensions=128 coordinate_bits=8 padded_slots=128 min_distance_gap=150 top10_boundary_gap=29288
+SETUP: CKKS_ring=65536 depth=23 FHEW_dimension=1305; generating switching and bootstrapping keys...
+setup_keygen_ms=5839.835263
+native_max_ms=69715.937161
+round=1 argmin_ms=69011.004557 mask_ms=40821.043444 result_level=19
+round=2 argmin_ms=67063.413994 mask_ms=40643.680181 result_level=19
+round=3 argmin_ms=67867.888981 mask_ms=40966.584297 result_level=19
+round=4 argmin_ms=68168.387823 mask_ms=41627.280515 result_level=19
+round=5 argmin_ms=68682.277241 mask_ms=41032.324485 result_level=19
+round=6 argmin_ms=68134.335435 mask_ms=40869.641329 result_level=19
+round=7 argmin_ms=68903.063940 mask_ms=41515.358908 result_level=19
+round=8 argmin_ms=71024.348219 mask_ms=41172.435093 result_level=19
+round=9 argmin_ms=71108.013392 mask_ms=41359.753788 result_level=19
+round=10 argmin_ms=71575.570154 mask_ms=0.000000 result_level=19
+verified_rank=1 id=0 distance=0 decoded_distance=2526.198113
+verified_rank=2 id=28 distance=1982596 decoded_distance=1983734.633585
+verified_rank=3 id=49 distance=2187758 decoded_distance=2189866.147420
+verified_rank=4 id=9 distance=2276747 decoded_distance=2282586.024714
+verified_rank=5 id=48 distance=2297502 decoded_distance=2301336.037778
+verified_rank=6 id=36 distance=2308993 decoded_distance=2314173.494579
+verified_rank=7 id=26 distance=2411282 decoded_distance=2419337.541605
+verified_rank=8 id=85 distance=2444919 decoded_distance=2449048.106475
+verified_rank=9 id=32 distance=2445099 decoded_distance=2454485.357146
+verified_rank=10 id=61 distance=2477318 decoded_distance=2484945.145448
+PASS: native max and all 10 ordered Top-k indices, padding excluded, input unchanged
+argmin_total_ms=691538.303736 mask_total_ms=370008.102040 topk_evaluation_ms=1061546.405776 max_selected_value_error=9386.357146 wall_ms=1137991.304592

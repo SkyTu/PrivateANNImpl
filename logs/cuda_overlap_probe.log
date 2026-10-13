@@ -1,0 +1,3 @@
+GPU=NVIDIA L40S-48Q SMs=142 concurrent_kernels=1 cooperative_launch=1
+ordinary max_cross_grid_block_overlap_ms=4.99507 distinct_sms=16
+cooperative max_cross_grid_block_overlap_ms=4.9961 distinct_sms=16

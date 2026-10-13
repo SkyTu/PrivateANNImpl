@@ -1,0 +1,44 @@
+Running tfhe_topk
+CUDA device 0: memory pools supported=no
+Generating BFV/TFHE-rs client keys...
+TIME BFV/TFHE client setup/key generation = 729.305 ms
+Initializing TFHE-rs CUDA server key...
+TIME TFHE CUDA server setup = 91.876 ms
+TIME TFHE fixture encryption = 9.076 ms
+Evaluating TFHE Top-1 (n=5)...
+TIME TFHE Top-1 (n=5) = 248.518 ms
+TIME TFHE verification decryption = 0.175 ms
+PASS: TFHE Top-1 (n=5)
+Evaluating TFHE Top-3 (n=5)...
+TIME TFHE Top-3 (n=5) = 1033.077 ms
+TIME TFHE verification decryption = 0.548 ms
+PASS: TFHE Top-3 (n=5)
+Evaluating TFHE Top-5 (n=5)...
+TIME TFHE Top-5 (n=5) = 1099.023 ms
+TIME TFHE verification decryption = 0.878 ms
+PASS: TFHE Top-5 (n=5)
+Evaluating TFHE singleton...
+TIME TFHE singleton = 0.002 ms
+TIME TFHE verification decryption = 0.031 ms
+PASS: TFHE singleton
+TIME TFHE fixture encryption = 31.026 ms
+Evaluating TFHE Top-u (n=17,u=16)...
+TIME TFHE Top-u (n=17,u=16) = 10156.823 ms
+TIME TFHE verification decryption = 1.410 ms
+PASS: TFHE Top-u (n=17,u=16)
+TIME TFHE fixture encryption = 21.701 ms
+Evaluating TFHE uint32 boundaries...
+TIME TFHE uint32 boundaries = 703.533 ms
+TIME TFHE verification decryption = 1.331 ms
+PASS: TFHE uint32 boundaries
+TIME TFHE fixture encryption = 8.671 ms
+Evaluating TFHE compact rank with bit-31 padding...
+TIME TFHE compact rank with bit-31 padding = 1068.464 ms
+TIME TFHE verification decryption = 0.434 ms
+PASS: TFHE compact rank with bit-31 padding
+TIME TFHE verification decryption = 0.194 ms
+TIME TFHE verification decryption = 0.119 ms
+PASS: ties, ID ordering, invalid padding, invalid k, and unchanged inputs
+PASS: tfhe_topk
+Completed server evaluations: 7; evaluation_ms=14309.439; setup_ms=821.181; encryption_ms=70.474; decryption_ms=5.119
+Component wall time: 15467.037 ms

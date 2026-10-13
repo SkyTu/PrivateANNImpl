@@ -1,0 +1,78 @@
+-- Finding CCCL components: Thrust;CUB;libcudacxx
+-- cccl_cmake_dir: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/heongpu-install/lib/rapids/cmake/cccl
+CMake Warning (dev) at third_party/heongpu-install/lib/rapids/cmake/cccl/cccl-config.cmake:67 (find_package):
+  Ignoring EXACT since no version is requested.
+Call Stack (most recent call first):
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/FindCCCL.cmake:42 (include)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-dependencies.cmake:25 (find_package)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-config.cmake:74 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/HEonGPUConfig.cmake:22 (find_dependency)
+  CMakeLists.txt:6 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at third_party/heongpu-install/lib/rapids/cmake/cccl/cccl-config.cmake:54 (find_package):
+  Ignoring EXACT since no version is requested.
+Call Stack (most recent call first):
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/FindCCCL.cmake:42 (include)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-dependencies.cmake:25 (find_package)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-config.cmake:74 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/HEonGPUConfig.cmake:22 (find_dependency)
+  CMakeLists.txt:6 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at third_party/heongpu-install/lib/rapids/cmake/cccl/cccl-config.cmake:41 (find_package):
+  Ignoring EXACT since no version is requested.
+Call Stack (most recent call first):
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/FindCCCL.cmake:42 (include)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-dependencies.cmake:25 (find_package)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-config.cmake:74 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/HEonGPUConfig.cmake:22 (find_dependency)
+  CMakeLists.txt:6 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Finding CCCL components: Thrust;CUB;libcudacxx
+-- cccl_cmake_dir: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/third_party/heongpu-install/lib/rapids/cmake/cccl
+CMake Warning (dev) at third_party/heongpu-install/lib/rapids/cmake/cccl/cccl-config.cmake:67 (find_package):
+  Ignoring EXACT since no version is requested.
+Call Stack (most recent call first):
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/FindCCCL.cmake:42 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-dependencies.cmake:26 (find_dependency)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-config.cmake:74 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/HEonGPUConfig.cmake:22 (find_dependency)
+  CMakeLists.txt:6 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at third_party/heongpu-install/lib/rapids/cmake/cccl/cccl-config.cmake:54 (find_package):
+  Ignoring EXACT since no version is requested.
+Call Stack (most recent call first):
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/FindCCCL.cmake:42 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-dependencies.cmake:26 (find_dependency)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-config.cmake:74 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/HEonGPUConfig.cmake:22 (find_dependency)
+  CMakeLists.txt:6 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at third_party/heongpu-install/lib/rapids/cmake/cccl/cccl-config.cmake:41 (find_package):
+  Ignoring EXACT since no version is requested.
+Call Stack (most recent call first):
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/FindCCCL.cmake:42 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-dependencies.cmake:26 (find_dependency)
+  third_party/heongpu-install/lib/cmake/rmm/rmm-config.cmake:74 (include)
+  /home/student.unimelb.edu.au/xinyutu/SecPromptTuning-service/.venv/lib/python3.8/site-packages/cmake/data/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)
+  third_party/heongpu-install/lib/cmake/HEonGPU-1.1/HEonGPUConfig.cmake:22 (find_dependency)
+  CMakeLists.txt:6 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found suitable version "3.0.2", minimum required is "1.1.1") found components: Crypto SSL
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/student.unimelb.edu.au/xinyutu/PrivateImpl/build/privateimpl
